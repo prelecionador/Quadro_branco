@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Quadro Branco interativo do Professor Ms. Pedro Guilherme com aulas de HTML, CSS e JavaScript." />
+  <title>Quadro Branco — Professor Pedro Guilherme</title>
+  <!-- Estilos fragmentados: base global primeiro, estilos dos quadros depois. -->
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="board-shell" aria-label="Quadro branco inteligente sobre HTML, CSS, Web e JavaScript">
+    <section class="board" aria-labelledby="home-page-title">
+      <span class="screw tl" aria-hidden="true"></span>
+      <span class="screw tr" aria-hidden="true"></span>
+      <span class="screw bl" aria-hidden="true"></span>
+      <span class="screw br" aria-hidden="true"></span>
+
+      <div class="board-content">
+
+
+        <section id="board-home" class="board-screen home-board-screen is-active" aria-labelledby="home-page-title">
+          <p class="home-scribble a" aria-hidden="true">&lt;html&gt;\n  conteúdo\n&lt;/html&gt;</p>
+          <p class="home-scribble b" aria-hidden="true">.web {\n  display: grid;\n}</p>
+          <p class="home-scribble c" aria-hidden="true">const aula =\n  'interativa';</p>
+          <p class="home-scribble d" aria-hidden="true">DOM → evento\n→ comportamento</p>
+
+          <header class="home-header">
+            <h1 id="home-page-title" tabindex="-1">Quadro Branco</h1>
+            <p class="home-professor">
+              <strong>Professor Ms. Pedro Guilherme</strong>
+              <span class="dot" aria-hidden="true">•</span>
+              <span class="career-a">Cientista da Computação</span>
+              <span class="dot" aria-hidden="true">•</span>
+              <span class="career-b">Técnico em Informática para Internet</span>
+            </p>
+          </header>
+
+          <section class="home-summary-wrap" aria-labelledby="home-summary-title">
+            <h2 class="home-summary-title" id="home-summary-title">Sumário das aulas</h2>
+            <div class="home-chapters" id="home-chapters">
+              <button type="button" class="home-chapter" data-board-target="board-html">
+                <span class="home-chapter-number">Aula 1</span>
+                <h2>HTML básico</h2>
+                <p>Cabeçalhos, títulos, parágrafos, links e um mapa rápido da história da Web.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-tags">
+                <span class="home-chapter-number">Aula 2</span>
+                <h2>Principais tags HTML</h2>
+                <p>As tags mais usadas com explicação, sintaxe, exemplo e interação.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-css">
+                <span class="home-chapter-number">Aula 3</span>
+                <h2>CSS: fundamentos</h2>
+                <p>Cores, fontes, listas, fundos, tabelas, posição e dimensões.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-css2">
+                <span class="home-chapter-number">Aula 4</span>
+                <h2>CSS: parte 2</h2>
+                <p>Pseudo-classes, pseudo-elementos, media queries, transições e animações.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-cssprops">
+                <span class="home-chapter-number">Aula 5</span>
+                <h2>Propriedades CSS</h2>
+                <p>Principais propriedades e relação de name, class/className e id em HTML, CSS e JS.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-current">
+                <span class="home-chapter-number">Aula 6</span>
+                <h2>HTML + CSS atuais</h2>
+                <p>Recursos modernos, acessibilidade, responsividade e conceitos de UI/UX.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-jsfund">
+                <span class="home-chapter-number">Aula 7</span>
+                <h2>JavaScript: fundamentos</h2>
+                <p>Tipos, let, const, var, if/else, for e while com exemplos.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-jsfunc">
+                <span class="home-chapter-number">Aula 8</span>
+                <h2>JavaScript: funções</h2>
+                <p>Parâmetros, return, funções anônimas, arrow functions, callback e escopo.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-one">
+                <span class="home-chapter-number">Aula 9</span>
+                <h2>Eventos Web</h2>
+                <p>Eventos do navegador com laboratório interativo e sintaxe JavaScript.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-two">
+                <span class="home-chapter-number">Aula 10</span>
+                <h2>Funções assíncronas</h2>
+                <p>Promise, async/await, fetch e fluxo assíncrono de execução.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-compare">
+                <span class="home-chapter-number">Aula 11</span>
+                <h2>CSS × JavaScript</h2>
+                <p>Semelhanças práticas, sintaxes equivalentes e diferenças de responsabilidade.</p>
+              </button>
+              <button type="button" class="home-chapter" data-board-target="board-dom">
+                <span class="home-chapter-number">Aula 12</span>
+                <h2>HTML ↔ JavaScript</h2>
+                <p>DOM, querySelector, eventos, atributos, classes, valores e criação de elementos.</p>
+              </button>
+            </div>
+          </section>
+
+          <div class="home-start-row">
+            <button type="button" class="home-start" id="home-start-course" aria-controls="board-html">Começar Aula 1</button>
+          </div>
+        </section>
+
+        <section id="board-html" class="board-screen html-board-screen" hidden aria-labelledby="html-page-title">
+          <header class="title-wrap">
+            <h1 id="html-page-title" tabindex="-1">HTML: Cabeçalhos, Títulos, Parágrafos e Links</h1>
+            <p class="subtitle">Estrutura primeiro: clique na tabela para ver a marcação e use os conceitos ao redor para abrir a história da Web.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-home-board" aria-controls="board-home">← voltar ao sumário</button>
+              <button type="button" class="board-switch" id="open-tags-board" aria-controls="board-tags">apagar este quadro e abrir principais tags HTML →</button>
+            </div>
+          </header>
+
+          <div class="workspace html-workspace" id="html-workspace">
+            <svg class="connections" viewBox="0 0 1200 690" preserveAspectRatio="none" aria-label="Conexões entre fundamentos de HTML e conceitos da Web">
+              <path class="connector html-connector web-history-line" data-html-concept="webHistory" role="button" tabindex="0" aria-label="Abrir contexto sobre Web e história" d="M190,105 C300,125 350,170 430,205" />
+              <path class="connector html-connector browser-wars-line" data-html-concept="browserWars" role="button" tabindex="0" aria-label="Abrir contexto sobre a guerra dos navegadores" d="M1015,115 C900,125 850,165 770,205" />
+              <path class="connector html-connector ai-html-line" data-html-concept="aiHtml" role="button" tabindex="0" aria-label="Abrir contexto sobre inteligência artificial e HTML" d="M190,345 C300,340 345,345 420,350" />
+              <path class="connector html-connector html5-line" data-html-concept="html5" role="button" tabindex="0" aria-label="Abrir contexto sobre HTML5" d="M1015,340 C900,340 855,345 780,350" />
+              <path class="connector html-connector css-line" data-html-concept="css" role="button" tabindex="0" aria-label="Abrir contexto sobre CSS" d="M230,610 C330,560 370,520 445,485" />
+              <path class="connector html-connector js-line" data-html-concept="javascript" role="button" tabindex="0" aria-label="Abrir contexto sobre JavaScript" d="M970,610 C875,560 830,520 755,485" />
+            </svg>
+
+            <button type="button" class="note html-note web-history html-concept-trigger" data-html-concept="webHistory" aria-pressed="false">
+              <h2>Web e história</h2>
+              <p><span class="keyword">HTML + HTTP + URL</span>: a base documental que permitiu ligar informações distribuídas em diferentes computadores.</p>
+            </button>
+
+            <button type="button" class="note html-note browser-wars html-concept-trigger" data-html-concept="browserWars" aria-pressed="false">
+              <h2>Guerra dos navegadores</h2>
+              <p>Competição entre navegadores acelerou recursos, mas também criou <span class="keyword">incompatibilidades</span> e reforçou a necessidade de padrões.</p>
+            </button>
+
+            <button type="button" class="note html-note ai-html html-concept-trigger" data-html-concept="aiHtml" aria-pressed="false">
+              <h2>IA no HTML</h2>
+              <p>HTML fornece <span class="keyword">estrutura semântica</span>; a inteligência costuma entrar por JavaScript, APIs, modelos e ferramentas de autoria.</p>
+            </button>
+
+            <section class="html-central" aria-live="polite">
+              <div id="html-table-view" class="panel-view">
+                <h2 class="table-title">Elementos fundamentais de HTML</h2>
+                <div class="table-card">
+                  <table class="html-table" aria-describedby="html-table-help html-detail">
+                    <caption class="sr-only">Elementos HTML para cabeçalhos, título da página, parágrafos e links.</caption>
+                    <thead><tr><th scope="col">Elemento</th><th scope="col">Função</th></tr></thead>
+                    <tbody id="html-body">
+                      <tr tabindex="0" data-html="headings"><td><span class="html-tag">&lt;h1&gt;…&lt;h6&gt;</span></td><td>organizam títulos e subtítulos do conteúdo em níveis hierárquicos</td></tr>
+                      <tr tabindex="0" data-html="title"><td><span class="html-tag">&lt;title&gt;</span></td><td>define o título do documento exibido na aba do navegador</td></tr>
+                      <tr tabindex="0" data-html="paragraph"><td><span class="html-tag">&lt;p&gt;</span></td><td>representa um parágrafo de texto com significado próprio</td></tr>
+                      <tr tabindex="0" data-html="link"><td><span class="html-tag">&lt;a&gt;</span></td><td>cria hiperlinks para outras páginas, arquivos ou pontos do documento</td></tr>
+                    </tbody>
+                  </table>
+                  <p id="html-table-help" class="sr-only">Use Tab para navegar. Clique ou pressione Enter em uma linha para abrir a explicação e o exemplo.</p>
+                  <div id="html-detail" class="html-detail" role="status" aria-live="polite"><strong>Dica:</strong> selecione um elemento para comparar a sintaxe HTML com o resultado visual.</div>
+                  <div class="html-example" id="html-example">
+                    <section class="html-example-box" aria-labelledby="html-code-title">
+                      <h3 id="html-code-title">Exemplo em HTML</h3>
+                      <pre class="html-source"><code id="html-source-code"></code></pre>
+                    </section>
+                    <section class="html-example-box preview" aria-labelledby="html-preview-title">
+                      <h3 id="html-preview-title">Como aparece no navegador</h3>
+                      <div id="html-preview" class="html-preview"></div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+
+              <div id="html-concept-view" class="panel-view" hidden>
+                <article class="concept-card html-concept-card" id="html-concept-card">
+                  <p class="concept-kicker">contexto ampliado • história e tecnologias da Web</p>
+                  <h2 id="html-concept-title">Conceito</h2>
+                  <p id="html-concept-summary" class="concept-summary"></p>
+                  <div class="concept-grid">
+                    <section class="scribble-box"><h3>Por que importa?</h3><p id="html-concept-why"></p></section>
+                    <section class="scribble-box"><h3>Relação com HTML</h3><p id="html-concept-relation"></p></section>
+                  </div>
+                  <div class="history-note" id="html-concept-extra"></div>
+                  <button type="button" class="back-button" id="back-to-html-table">← voltar para a tabela HTML</button>
+                </article>
+              </div>
+            </section>
+
+            <button type="button" class="note html-note html5-concept html-concept-trigger" data-html-concept="html5" aria-pressed="false">
+              <h2>HTML5</h2>
+              <p>Consolidou elementos <span class="keyword">semânticos e multimídia</span> e uma base moderna para aplicações Web.</p>
+            </button>
+
+            <button type="button" class="note html-note css-concept html-concept-trigger" data-html-concept="css" aria-pressed="false">
+              <h2>CSS</h2>
+              <p>Cuida da <span class="keyword">apresentação</span>: cores, espaçamento, tipografia, responsividade, animações e composição visual.</p>
+            </button>
+
+            <button type="button" class="note html-note js-concept html-concept-trigger" data-html-concept="javascript" aria-pressed="false">
+              <h2>JavaScript</h2>
+              <p>Adiciona <span class="keyword">comportamento</span>: eventos, alterações no DOM, validações, rede e lógica dinâmica.</p>
+            </button>
+          </div>
+        </section>
+
+
+        <section id="board-tags" class="board-screen tags-board-screen" hidden aria-labelledby="tags-page-title">
+          <header class="title-wrap">
+            <h1 id="tags-page-title" tabindex="-1">HTML: Principais Tags</h1>
+            <p class="subtitle">Aqui a tabela vira um mapa rápido: só as tags. Clique em qualquer uma para “apagar” a grade e abrir sua explicação, sintaxe, exemplo e interação comum.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-html-board" aria-controls="board-html">← apagar e voltar ao quadro anterior</button>
+              <button type="button" class="board-switch" id="open-css-board" aria-controls="board-css">apagar este quadro e abrir CSS →</button>
+            </div>
+          </header>
+
+          <div class="tags-workspace" id="tags-workspace">
+            <pre class="tags-scribble t1" aria-hidden="true">&lt;main&gt;
+  &lt;section&gt;…&lt;/section&gt;
+&lt;/main&gt;</pre>
+            <pre class="tags-scribble t2" aria-hidden="true">&lt;a href="/aula"&gt;
+  continuar
+&lt;/a&gt;</pre>
+            <pre class="tags-scribble t3" aria-hidden="true">&lt;form&gt;
+  &lt;input required&gt;
+&lt;/form&gt;</pre>
+            <pre class="tags-scribble t4" aria-hidden="true">&lt;script defer&gt;
+  // comportamento
+&lt;/script&gt;</pre>
+
+            <section class="tags-central" aria-live="polite">
+              <div id="tags-table-view" class="panel-view">
+                <h2 class="table-title">Tags essenciais do HTML</h2>
+                <div class="table-card">
+                  <table class="tags-grid-table" aria-describedby="tags-help">
+                    <caption class="sr-only">Tabela com as principais tags HTML. Cada célula contém apenas uma tag clicável.</caption>
+                    <tbody id="tags-body">
+                      <tr><td><button class="tag-chip" data-tag="html">&lt;html&gt;</button></td><td><button class="tag-chip" data-tag="head">&lt;head&gt;</button></td><td><button class="tag-chip" data-tag="body">&lt;body&gt;</button></td><td><button class="tag-chip" data-tag="meta">&lt;meta&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="title">&lt;title&gt;</button></td><td><button class="tag-chip" data-tag="link">&lt;link&gt;</button></td><td><button class="tag-chip" data-tag="style">&lt;style&gt;</button></td><td><button class="tag-chip" data-tag="script">&lt;script&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="header">&lt;header&gt;</button></td><td><button class="tag-chip" data-tag="nav">&lt;nav&gt;</button></td><td><button class="tag-chip" data-tag="main">&lt;main&gt;</button></td><td><button class="tag-chip" data-tag="section">&lt;section&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="article">&lt;article&gt;</button></td><td><button class="tag-chip" data-tag="aside">&lt;aside&gt;</button></td><td><button class="tag-chip" data-tag="footer">&lt;footer&gt;</button></td><td><button class="tag-chip" data-tag="div">&lt;div&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="h1">&lt;h1&gt;</button></td><td><button class="tag-chip" data-tag="p">&lt;p&gt;</button></td><td><button class="tag-chip" data-tag="span">&lt;span&gt;</button></td><td><button class="tag-chip" data-tag="a">&lt;a&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="img">&lt;img&gt;</button></td><td><button class="tag-chip" data-tag="figure">&lt;figure&gt;</button></td><td><button class="tag-chip" data-tag="figcaption">&lt;figcaption&gt;</button></td><td><button class="tag-chip" data-tag="br">&lt;br&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="ul">&lt;ul&gt;</button></td><td><button class="tag-chip" data-tag="ol">&lt;ol&gt;</button></td><td><button class="tag-chip" data-tag="li">&lt;li&gt;</button></td><td><button class="tag-chip" data-tag="strong">&lt;strong&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="form">&lt;form&gt;</button></td><td><button class="tag-chip" data-tag="label">&lt;label&gt;</button></td><td><button class="tag-chip" data-tag="input">&lt;input&gt;</button></td><td><button class="tag-chip" data-tag="button">&lt;button&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="textarea">&lt;textarea&gt;</button></td><td><button class="tag-chip" data-tag="select">&lt;select&gt;</button></td><td><button class="tag-chip" data-tag="option">&lt;option&gt;</button></td><td><button class="tag-chip" data-tag="table">&lt;table&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="tr">&lt;tr&gt;</button></td><td><button class="tag-chip" data-tag="th">&lt;th&gt;</button></td><td><button class="tag-chip" data-tag="td">&lt;td&gt;</button></td><td><button class="tag-chip" data-tag="video">&lt;video&gt;</button></td></tr>
+                      <tr><td><button class="tag-chip" data-tag="audio">&lt;audio&gt;</button></td><td><button class="tag-chip" data-tag="source">&lt;source&gt;</button></td><td><button class="tag-chip" data-tag="canvas">&lt;canvas&gt;</button></td><td><button class="tag-chip" data-tag="iframe">&lt;iframe&gt;</button></td></tr>
+                    </tbody>
+                  </table>
+                  <p class="tags-hint" id="tags-help">clique em uma tag • Enter/Espaço também funcionam</p>
+                </div>
+              </div>
+
+              <div id="tag-detail-view" class="panel-view" hidden>
+                <article class="concept-card tag-detail-card" id="tag-detail-card">
+                  <p class="concept-kicker">tag selecionada • HTML</p>
+                  <h2 id="tag-detail-title">&lt;tag&gt;</h2>
+                  <p id="tag-detail-summary" class="concept-summary"></p>
+                  <div class="tag-detail-grid">
+                    <section class="tag-detail-box">
+                      <h3>Sintaxe</h3>
+                      <pre class="tag-syntax"><code id="tag-detail-syntax"></code></pre>
+                    </section>
+                    <section class="tag-detail-box">
+                      <h3>Exemplo</h3>
+                      <div class="tag-example-render" id="tag-detail-example"></div>
+                    </section>
+                  </div>
+                  <div class="tag-event-strip"><strong>Evento/interação comum:</strong> <span id="tag-detail-event"></span></div>
+                  <button type="button" class="back-button" id="back-to-tags-table">← voltar para as tags</button>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+        <section id="board-css" class="board-screen css-board-screen" hidden aria-labelledby="css-page-title">
+          <header class="title-wrap">
+            <h1 id="css-page-title" tabindex="-1">CSS: Estilos e Organização Visual</h1>
+            <p class="subtitle">Selecione um assunto da tabela para ver sintaxe e efeito visual. Os rabiscos ao redor conectam CSS à história, às páginas dinâmicas, ao ecossistema moderno e à experiência do usuário.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-tags-board-css" aria-controls="board-tags">← apagar e voltar às principais tags HTML</button>
+              <button type="button" class="board-switch" id="open-css2-board" aria-controls="board-css2">apagar este quadro e abrir CSS parte 2 →</button>
+            </div>
+          </header>
+
+          <div class="css-workspace" id="css-workspace">
+            <svg class="connections" viewBox="0 0 1200 690" preserveAspectRatio="none" aria-label="Conexões entre fundamentos de CSS e conceitos relacionados">
+              <path class="connector css-connector css-history-line" data-css-concept="cssHistory" role="button" tabindex="0" aria-label="Abrir contexto sobre a história do CSS" d="M190,115 C300,130 350,175 430,215" />
+              <path class="connector css-connector dynamic-pages-line" data-css-concept="dynamicPages" role="button" tabindex="0" aria-label="Abrir contexto sobre CSS e páginas dinâmicas" d="M1015,120 C900,130 850,175 770,215" />
+              <path class="connector css-connector sass-tailwind-line" data-css-concept="sassTailwind" role="button" tabindex="0" aria-label="Abrir contexto sobre Sass e Tailwind" d="M230,605 C330,560 370,520 445,480" />
+              <path class="connector css-connector uiux-line" data-css-concept="uiux" role="button" tabindex="0" aria-label="Abrir contexto sobre UI e UX" d="M970,605 C875,560 830,520 755,480" />
+            </svg>
+
+            <button type="button" class="note css-note css-history-note css-concept-trigger" data-css-concept="cssHistory" aria-pressed="false">
+              <h2>CSS • história</h2>
+              <p>De separar <span class="keyword">conteúdo e apresentação</span> até layouts responsivos, animações e design systems.</p>
+            </button>
+
+            <button type="button" class="note css-note dynamic-pages-note css-concept-trigger" data-css-concept="dynamicPages" aria-pressed="false">
+              <h2>Páginas dinâmicas</h2>
+              <p>Estados, classes, media queries e transições fazem a interface <span class="keyword">reagir visualmente</span>.</p>
+            </button>
+
+            <section class="css-central" aria-live="polite">
+              <div id="css-table-view" class="panel-view">
+                <h2 class="table-title">Fundamentos de CSS</h2>
+                <div class="table-card">
+                  <table class="css-table" aria-describedby="css-table-help">
+                    <caption class="sr-only">Tabela de assuntos fundamentais de CSS.</caption>
+                    <thead><tr><th scope="col">Assunto</th><th scope="col">O que você controla</th></tr></thead>
+                    <tbody id="css-body">
+                      <tr tabindex="0" data-css="backgrounds"><td><span class="css-topic">Planos de fundo</span></td><td>cores, imagens, gradientes, posição e dimensionamento do fundo</td></tr>
+                      <tr tabindex="0" data-css="fonts"><td><span class="css-topic">Fontes</span></td><td>família, tamanho, peso, altura de linha e leitura do texto</td></tr>
+                      <tr tabindex="0" data-css="links"><td><span class="css-topic">Links</span></td><td>aparência e estados como hover, focus e visited</td></tr>
+                      <tr tabindex="0" data-css="lists"><td><span class="css-topic">Listas</span></td><td>marcadores, recuos, numeração e listas usadas em navegação</td></tr>
+                      <tr tabindex="0" data-css="colors"><td><span class="css-topic">Cores</span></td><td>texto, fundo, bordas, transparência e contraste</td></tr>
+                      <tr tabindex="0" data-css="tables"><td><span class="css-topic">Tabelas</span></td><td>bordas, espaçamento, alinhamento e destaque de linhas/colunas</td></tr>
+                      <tr tabindex="0" data-css="positioning"><td><span class="css-topic">Posicionamento</span></td><td>fluxo, relative, absolute, fixed, sticky e coordenadas</td></tr>
+                      <tr tabindex="0" data-css="dimensions"><td><span class="css-topic">Dimensões</span></td><td>width, height, min/max, padding, border e box-sizing</td></tr>
+                    </tbody>
+                  </table>
+                  <p id="css-table-help" class="tags-hint">clique em uma linha • Enter/Espaço também funcionam</p>
+                </div>
+              </div>
+
+              <div id="css-detail-view" class="panel-view" hidden>
+                <article class="concept-card css-detail-card" id="css-detail-card">
+                  <p class="concept-kicker">assunto selecionado • CSS</p>
+                  <h2 id="css-detail-title">Assunto</h2>
+                  <p id="css-detail-summary" class="concept-summary"></p>
+                  <div class="css-detail-grid">
+                    <section class="css-detail-box">
+                      <h3>Sintaxe</h3>
+                      <pre class="css-syntax"><code id="css-detail-syntax"></code></pre>
+                    </section>
+                    <section class="css-detail-box">
+                      <h3>Exemplo visual</h3>
+                      <div class="css-preview" id="css-detail-preview"></div>
+                    </section>
+                  </div>
+                  <div class="css-effect-strip"><strong>Efeito na página:</strong> <span id="css-detail-effect"></span></div>
+                  <button type="button" class="back-button" id="back-to-css-table">← voltar para a tabela CSS</button>
+                </article>
+              </div>
+
+              <div id="css-concept-view" class="panel-view" hidden>
+                <article class="concept-card css-concept-card" id="css-concept-card">
+                  <p class="concept-kicker">contexto ampliado • CSS no ecossistema Web</p>
+                  <h2 id="css-concept-title">Conceito</h2>
+                  <p id="css-concept-summary" class="concept-summary"></p>
+                  <div class="concept-grid">
+                    <section class="scribble-box"><h3>O que significa?</h3><p id="css-concept-simple"></p></section>
+                    <section class="scribble-box"><h3>Na prática</h3><p id="css-concept-practice"></p></section>
+                  </div>
+                  <div class="history-note" id="css-concept-extra"></div>
+                  <button type="button" class="back-button" id="back-to-css-context">← voltar para a tabela CSS</button>
+                </article>
+              </div>
+            </section>
+
+            <button type="button" class="note css-note sass-tailwind-note css-concept-trigger" data-css-concept="sassTailwind" aria-pressed="false">
+              <h2>Sass e Tailwind</h2>
+              <p>Duas abordagens diferentes para <span class="keyword">organizar e produzir CSS</span> em projetos maiores.</p>
+            </button>
+
+            <button type="button" class="note css-note uiux-note css-concept-trigger" data-css-concept="uiux" aria-pressed="false">
+              <h2>UI / UX</h2>
+              <p>CSS materializa decisões de <span class="keyword">interface, legibilidade, feedback e responsividade</span>.</p>
+            </button>
+          </div>
+        </section>
+
+
+        <section id="board-css2" class="board-screen css2-board-screen" hidden aria-labelledby="css2-page-title">
+          <header class="title-wrap">
+            <h1 id="css2-page-title" tabindex="-1">CSS: Parte 2</h1>
+            <p class="subtitle">Pseudo-classes, pseudo-elementos, responsividade, animações e transições — com o quadro principal em cima e dois quadros de apoio embaixo.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-css1-board" aria-controls="board-css">← apagar e voltar ao CSS anterior</button>
+              <button type="button" class="board-switch" id="open-cssprops-board" aria-controls="board-cssprops">apagar este quadro e abrir principais propriedades CSS →</button>
+            </div>
+          </header>
+
+          <div class="css2-workspace" id="css2-workspace">
+            <pre class="css2-scribble a" aria-hidden="true">a:hover { color: red; }
+input:focus { outline: 3px solid blue; }</pre>
+            <pre class="css2-scribble b" aria-hidden="true">@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}</pre>
+            <pre class="css2-scribble c" aria-hidden="true">.botao::before { content: "→"; }
+li::marker { color: green; }</pre>
+            <pre class="css2-scribble d" aria-hidden="true">transition: .3s ease;
+@keyframes entrar { from { opacity: 0; } }</pre>
+
+            <section class="css2-central" aria-live="polite">
+              <div id="css2-main-view" class="panel-view">
+                <h2 class="table-title">Estados, adaptação e movimento</h2>
+                <div class="css2-main-card">
+                  <table class="css2-main-table" aria-describedby="css2-help">
+                    <caption class="sr-only">Tabela da segunda parte de CSS.</caption>
+                    <thead><tr><th scope="col">Assunto</th><th scope="col">Ideia central</th></tr></thead>
+                    <tbody id="css2-body">
+                      <tr tabindex="0" data-css2="pseudoClasses"><td><span class="css2-topic">Pseudo-classes</span></td><td>selecionam estados, relações e condições de elementos, como :hover, :focus e :checked</td></tr>
+                      <tr tabindex="0" data-css2="pseudoElements"><td><span class="css2-topic">Pseudo-elementos</span></td><td>estilizam partes específicas ou conteúdo gerado, como ::before, ::after e ::marker</td></tr>
+                      <tr tabindex="0" data-css2="mediaQueries"><td><span class="css2-topic">Responsividade (Media Queries)</span></td><td>adapta o layout à largura, orientação, preferências e características do dispositivo</td></tr>
+                      <tr tabindex="0" data-css2="motion"><td><span class="css2-topic">Animações e Transições</span></td><td>criam mudanças graduais, feedback visual e movimento controlado na interface</td></tr>
+                    </tbody>
+                  </table>
+                  <p id="css2-help" class="tags-hint">clique em uma linha • pseudo-classes e pseudo-elementos abrem um quadro de referência completo</p>
+                </div>
+
+                <div class="css2-bottom-grid" aria-label="Quadros de explicação e exemplo">
+                  <article class="css2-boardlet" id="css2-explanation-board">
+                    <h3 id="css2-explanation-title">Explicação</h3>
+                    <p id="css2-explanation-text">Selecione um assunto acima. Este quadro explica o conceito e quando ele é usado.</p>
+                    <p id="css2-trigger-text"><strong>Gatilho/condição:</strong> —</p>
+                    <button type="button" class="css2-open-reference" id="css2-open-reference">abrir quadro completo</button>
+                  </article>
+                  <article class="css2-boardlet" id="css2-example-board">
+                    <h3>Sintaxe + exemplo</h3>
+                    <pre class="css2-code"><code id="css2-code">/* selecione um assunto */</code></pre>
+                    <div class="css2-live-example" id="css2-live-example">O exemplo interativo aparece aqui.</div>
+                  </article>
+                </div>
+              </div>
+
+              <div id="css2-reference-view" class="panel-view css2-reference-view" hidden>
+                <article class="css2-reference-card" id="css2-reference-card">
+                  <p class="concept-kicker">quadro de referência • CSS Parte 2</p>
+                  <h2 id="css2-reference-title">Referência</h2>
+                  <p id="css2-reference-intro"></p>
+                  <div class="css2-reference-tools">
+                    <label class="sr-only" for="css2-reference-search">Filtrar seletores</label>
+                    <input class="css2-reference-search" id="css2-reference-search" type="search" placeholder="filtrar por nome, estado ou exemplo…" autocomplete="off">
+                    <span class="css2-reference-count" id="css2-reference-count" aria-live="polite"></span>
+                  </div>
+                  <div class="css2-reference-table-wrap" tabindex="0" aria-label="Tabela rolável de referência">
+                    <table class="css2-reference-table">
+                      <caption class="sr-only">Seletores CSS com explicação, pseudocódigo e exemplo.</caption>
+                      <thead><tr><th scope="col">Seletor</th><th scope="col">Explicação</th><th scope="col">Pseudocódigo / sintaxe</th><th scope="col">Exemplo</th></tr></thead>
+                      <tbody id="css2-reference-body"></tbody>
+                    </table>
+                  </div>
+                  <button type="button" class="back-button" id="back-to-css2-main">← voltar para CSS parte 2</button>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+
+        <section id="board-cssprops" class="board-screen cssprops-board-screen" hidden aria-labelledby="cssprops-page-title">
+          <header class="title-wrap">
+            <h1 id="cssprops-page-title" tabindex="-1">CSS: Principais Propriedades</h1>
+            <p class="subtitle">Uma grade de consulta rápida: a tabela mostra somente as propriedades. Clique em uma delas para abrir explicação, sintaxe e exemplo visual.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-css2-from-props" aria-controls="board-css2">← apagar e voltar ao CSS parte 2</button>
+              <button type="button" class="board-switch" id="open-current-board" aria-controls="board-current">apagar este quadro e abrir atualidades HTML + CSS →</button>
+            </div>
+          </header>
+
+          <div class="cssprops-workspace" id="cssprops-workspace">
+            <pre class="cssprops-scribble a" aria-hidden="true">.card {
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px #0002;
+}</pre>
+            <pre class="cssprops-scribble b" aria-hidden="true">#app { display: grid; }
+.item { gap: .75rem; }
+[name="email"] { ... }</pre>
+
+            <button type="button" class="note cssp-note name-note cssprops-concept-trigger" data-cssprops-concept="name" aria-pressed="false">
+              <h2>name</h2>
+              <p>atributo usado para <span class="keyword">nomear dados</span>, muito comum em formulários.</p>
+            </button>
+            <button type="button" class="note cssp-note class-note cssprops-concept-trigger" data-cssprops-concept="className" aria-pressed="false">
+              <h2>class / className</h2>
+              <p>agrupa elementos sob um <span class="keyword">mesmo estilo ou comportamento</span>.</p>
+            </button>
+            <button type="button" class="note cssp-note id-note cssprops-concept-trigger" data-cssprops-concept="id" aria-pressed="false">
+              <h2>id</h2>
+              <p>identificador <span class="keyword">único</span> para um elemento do documento.</p>
+            </button>
+
+            <section class="cssprops-central" aria-live="polite">
+              <div id="cssprops-table-view" class="panel-view">
+                <h2 class="table-title">Propriedades essenciais do CSS</h2>
+                <div class="table-card">
+                  <table class="cssprops-grid-table" aria-describedby="cssprops-help">
+                    <caption class="sr-only">Tabela com propriedades CSS. Cada célula contém somente o nome de uma propriedade clicável.</caption>
+                    <tbody id="cssprops-body">
+                      <tr><td><button class="css-prop-chip" data-cssprop="color">color</button></td><td><button class="css-prop-chip" data-cssprop="backgroundColor">background-color</button></td><td><button class="css-prop-chip" data-cssprop="backgroundImage">background-image</button></td><td><button class="css-prop-chip" data-cssprop="backgroundSize">background-size</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="fontFamily">font-family</button></td><td><button class="css-prop-chip" data-cssprop="fontSize">font-size</button></td><td><button class="css-prop-chip" data-cssprop="fontWeight">font-weight</button></td><td><button class="css-prop-chip" data-cssprop="lineHeight">line-height</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="textAlign">text-align</button></td><td><button class="css-prop-chip" data-cssprop="textDecoration">text-decoration</button></td><td><button class="css-prop-chip" data-cssprop="letterSpacing">letter-spacing</button></td><td><button class="css-prop-chip" data-cssprop="whiteSpace">white-space</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="width">width</button></td><td><button class="css-prop-chip" data-cssprop="height">height</button></td><td><button class="css-prop-chip" data-cssprop="minWidth">min-width</button></td><td><button class="css-prop-chip" data-cssprop="maxWidth">max-width</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="margin">margin</button></td><td><button class="css-prop-chip" data-cssprop="padding">padding</button></td><td><button class="css-prop-chip" data-cssprop="border">border</button></td><td><button class="css-prop-chip" data-cssprop="borderRadius">border-radius</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="boxShadow">box-shadow</button></td><td><button class="css-prop-chip" data-cssprop="boxSizing">box-sizing</button></td><td><button class="css-prop-chip" data-cssprop="opacity">opacity</button></td><td><button class="css-prop-chip" data-cssprop="overflow">overflow</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="display">display</button></td><td><button class="css-prop-chip" data-cssprop="visibility">visibility</button></td><td><button class="css-prop-chip" data-cssprop="position">position</button></td><td><button class="css-prop-chip" data-cssprop="zIndex">z-index</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="top">top</button></td><td><button class="css-prop-chip" data-cssprop="right">right</button></td><td><button class="css-prop-chip" data-cssprop="bottom">bottom</button></td><td><button class="css-prop-chip" data-cssprop="left">left</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="gap">gap</button></td><td><button class="css-prop-chip" data-cssprop="flexDirection">flex-direction</button></td><td><button class="css-prop-chip" data-cssprop="justifyContent">justify-content</button></td><td><button class="css-prop-chip" data-cssprop="alignItems">align-items</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="flexWrap">flex-wrap</button></td><td><button class="css-prop-chip" data-cssprop="gridColumns">grid-template-columns</button></td><td><button class="css-prop-chip" data-cssprop="transform">transform</button></td><td><button class="css-prop-chip" data-cssprop="transition">transition</button></td></tr>
+                      <tr><td><button class="css-prop-chip" data-cssprop="animation">animation</button></td><td><button class="css-prop-chip" data-cssprop="cursor">cursor</button></td><td><button class="css-prop-chip" data-cssprop="objectFit">object-fit</button></td><td><button class="css-prop-chip" data-cssprop="aspectRatio">aspect-ratio</button></td></tr>
+                    </tbody>
+                  </table>
+                  <p id="cssprops-help" class="tags-hint">clique em uma propriedade • o quadro abre a sintaxe e mostra o efeito</p>
+                </div>
+              </div>
+
+              <div id="cssprops-detail-view" class="panel-view" hidden>
+                <article class="concept-card css-prop-detail-card" id="cssprop-detail-card">
+                  <p class="concept-kicker">propriedade CSS • explicação + sintaxe + resultado</p>
+                  <h2 id="cssprop-detail-title">color</h2>
+                  <p class="concept-summary" id="cssprop-detail-description"></p>
+                  <div class="css-prop-detail-grid">
+                    <section class="css-prop-code-box">
+                      <h3>Sintaxe</h3>
+                      <pre class="css-prop-code"><code id="cssprop-detail-code"></code></pre>
+                    </section>
+                    <section class="css-prop-demo-box">
+                      <h3>Exemplo ao vivo</h3>
+                      <div class="css-prop-demo-stage" id="cssprop-demo-stage"></div>
+                    </section>
+                  </div>
+                  <p class="selector-note" id="cssprop-detail-note"></p>
+                  <button type="button" class="back-button" id="back-to-cssprops-table">← voltar para propriedades</button>
+                </article>
+              </div>
+
+              <div id="cssprops-concept-view" class="panel-view" hidden>
+                <article class="concept-card cssprops-concept-card" id="cssprops-concept-card">
+                  <p class="concept-kicker">HTML ↔ CSS ↔ JavaScript</p>
+                  <h2 id="cssprops-concept-title">Seletor</h2>
+                  <p class="concept-summary" id="cssprops-concept-summary"></p>
+                  <div class="selector-declaration-grid">
+                    <section class="selector-declaration-box"><h3>HTML</h3><pre id="cssprops-concept-html"></pre></section>
+                    <section class="selector-declaration-box"><h3>CSS</h3><pre id="cssprops-concept-css"></pre></section>
+                    <section class="selector-declaration-box"><h3>JavaScript</h3><pre id="cssprops-concept-js"></pre></section>
+                  </div>
+                  <p class="selector-note" id="cssprops-concept-note"></p>
+                  <button type="button" class="back-button" id="back-to-cssprops-main">← voltar para propriedades</button>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+
+        <section id="board-current" class="board-screen current-board-screen" hidden aria-labelledby="current-page-title">
+          <header class="title-wrap">
+            <h1 id="current-page-title" tabindex="-1">Atualidades em HTML + CSS</h1>
+            <p class="subtitle">Recursos modernos da plataforma Web: clique na tabela para ver sintaxe e exemplo; ao redor, explore acessibilidade e UI/UX.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-cssprops-from-current" aria-controls="board-cssprops">← apagar e voltar às propriedades CSS</button>
+              <button type="button" class="board-switch" id="open-jsfund-board" aria-controls="board-jsfund">apagar este quadro e abrir fundamentos de JavaScript →</button>
+            </div>
+          </header>
+
+          <div class="current-workspace" id="current-workspace">
+            <pre class="current-scribble a" aria-hidden="true">button[popovertarget] → popover
+@container card (width &gt; 30rem) { … }
+.field { field-sizing: content; }</pre>
+            <pre class="current-scribble b" aria-hidden="true">.card:has(img) { … }
+.grid { grid-template-columns: subgrid; }
+html { view-transition-name: root; }</pre>
+
+            <button type="button" class="note current-note a11y-semantic current-concept-trigger" data-current-concept="semantic" aria-pressed="false">
+              <h2>Semântica</h2><p>HTML com significado melhora <span class="keyword">navegação, leitura e estrutura</span>.</p>
+            </button>
+            <button type="button" class="note current-note a11y-aria current-concept-trigger" data-current-concept="aria" aria-pressed="false">
+              <h2>ARIA</h2><p>Atributos que complementam a <span class="keyword">semântica acessível</span> quando o HTML nativo não basta.</p>
+            </button>
+            <button type="button" class="note current-note a11y-focus current-concept-trigger" data-current-concept="focus" aria-pressed="false">
+              <h2>Teclado + foco</h2><p>Uma interface precisa funcionar sem mouse e deixar o <span class="keyword">foco visível</span>.</p>
+            </button>
+
+            <section class="current-central" aria-live="polite">
+              <div id="current-table-view" class="panel-view">
+                <h2 class="table-title">HTML e CSS — recursos atuais</h2>
+                <div class="table-card">
+                  <table class="current-table" aria-describedby="current-help current-detail">
+                    <caption class="sr-only">Tabela de recursos modernos de HTML e CSS com exemplos clicáveis.</caption>
+                    <thead><tr><th scope="col">Área</th><th scope="col">Recurso</th><th scope="col">Ideia principal</th></tr></thead>
+                    <tbody id="current-body">
+                      <tr tabindex="0" data-current="popover"><td><span class="current-area html">HTML</span></td><td><span class="current-feature">popover / popovertarget</span></td><td>camadas não modais declarativas</td></tr>
+                      <tr tabindex="0" data-current="dialog"><td><span class="current-area html">HTML</span></td><td><span class="current-feature">&lt;dialog&gt;</span></td><td>janela modal ou não modal nativa</td></tr>
+                      <tr tabindex="0" data-current="commands"><td><span class="current-area html">HTML</span></td><td><span class="current-feature">command / commandfor</span></td><td>ações declarativas entre controles e alvos</td></tr>
+                      <tr tabindex="0" data-current="details"><td><span class="current-area html">HTML</span></td><td><span class="current-feature">&lt;details&gt; + &lt;summary&gt;</span></td><td>conteúdo expansível com semântica nativa</td></tr>
+                      <tr tabindex="0" data-current="container"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">@container</span></td><td>estilo baseado no tamanho do componente</td></tr>
+                      <tr tabindex="0" data-current="styleQueries"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">container style queries</span></td><td>consulta estilos/variáveis do contêiner</td></tr>
+                      <tr tabindex="0" data-current="nesting"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">CSS nesting (&amp;)</span></td><td>regras aninhadas diretamente no CSS</td></tr>
+                      <tr tabindex="0" data-current="has"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">:has()</span></td><td>seleciona com base em descendentes/estado</td></tr>
+                      <tr tabindex="0" data-current="subgrid"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">subgrid</span></td><td>herda trilhas do grid pai</td></tr>
+                      <tr tabindex="0" data-current="viewTransitions"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">View Transitions</span></td><td>transições visuais entre estados/páginas</td></tr>
+                      <tr tabindex="0" data-current="fieldSizing"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">field-sizing</span></td><td>campo ajusta tamanho ao conteúdo</td></tr>
+                      <tr tabindex="0" data-current="contrastColor"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">contrast-color()</span></td><td>cor de contraste calculada pelo CSS</td></tr>
+                      <tr tabindex="0" data-current="openPseudo"><td><span class="current-area css">CSS</span></td><td><span class="current-feature">:open</span></td><td>estiliza elementos expansíveis abertos</td></tr>
+                    </tbody>
+                  </table>
+                  <p id="current-help" class="sr-only">Use Tab para navegar. Clique ou pressione Enter em uma linha para abrir a explicação e o exemplo.</p>
+                  <div id="current-detail" class="html-detail" role="status" aria-live="polite"><strong>Dica:</strong> selecione um recurso para ver a sintaxe e um exemplo. O suporte pode variar entre navegadores.</div>
+                </div>
+              </div>
+
+              <div id="current-detail-view" class="panel-view" hidden>
+                <article class="concept-card current-detail-card" id="current-detail-card">
+                  <p class="concept-kicker">atualidades da plataforma Web • HTML + CSS</p>
+                  <h2 id="current-detail-title">Recurso</h2>
+                  <p class="concept-summary" id="current-detail-summary"></p>
+                  <div class="current-detail-grid">
+                    <section class="current-box"><h3>Sintaxe</h3><pre class="current-code"><code id="current-detail-code"></code></pre></section>
+                    <section class="current-box"><h3>Exemplo</h3><div class="current-demo" id="current-demo"></div></section>
+                  </div>
+                  <p class="current-status-note" id="current-detail-note"></p>
+                  <button type="button" class="back-button" id="back-to-current-table">← voltar para atualidades</button>
+                </article>
+              </div>
+
+              <div id="current-concept-view" class="panel-view" hidden>
+                <article class="concept-card current-concept-card" id="current-concept-card">
+                  <p class="concept-kicker" id="current-concept-kicker">acessibilidade • conceito</p>
+                  <h2 id="current-concept-title">Conceito</h2>
+                  <p class="concept-summary" id="current-concept-summary"></p>
+                  <div class="concept-grid">
+                    <section class="scribble-box"><h3>Na prática</h3><p id="current-concept-practice"></p></section>
+                    <section class="scribble-box"><h3>Por que importa?</h3><p id="current-concept-why"></p></section>
+                  </div>
+                  <section class="current-concept-example"><h3>Exemplo</h3><pre id="current-concept-code"></pre></section>
+                  <button type="button" class="back-button" id="back-to-current-main">← voltar para atualidades</button>
+                </article>
+              </div>
+            </section>
+
+            <button type="button" class="note current-note ux-hierarchy current-concept-trigger" data-current-concept="hierarchy" aria-pressed="false">
+              <h2>Hierarquia visual</h2><p>Tamanho, espaço e contraste indicam <span class="keyword">o que ler e fazer primeiro</span>.</p>
+            </button>
+            <button type="button" class="note current-note ux-feedback current-concept-trigger" data-current-concept="feedback" aria-pressed="false">
+              <h2>Feedback</h2><p>A interface deve responder rapidamente a <span class="keyword">clique, envio, erro e carregamento</span>.</p>
+            </button>
+            <button type="button" class="note current-note ux-responsive current-concept-trigger" data-current-concept="responsive" aria-pressed="false">
+              <h2>Responsividade</h2><p>Layout e controles precisam se adaptar ao <span class="keyword">espaço e ao dispositivo</span>.</p>
+            </button>
+          </div>
+        </section>
+
+
+
+        <section id="board-jsfund" class="board-screen jsfund-board-screen" hidden aria-labelledby="jsfund-page-title">
+          <header class="title-wrap">
+            <h1 id="jsfund-page-title" tabindex="-1">JavaScript: Fundamentos</h1>
+            <p class="subtitle">Tipos de dados, variáveis e estruturas de controle. Clique em uma linha: os dois quadros inferiores mudam sem recarregar a página.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-current-from-jsfund" aria-controls="board-current">← apagar e voltar às atualidades HTML + CSS</button>
+              <button type="button" class="board-switch" id="open-jsfunc-board" aria-controls="board-jsfunc">apagar este quadro e abrir funções em JavaScript →</button>
+            </div>
+          </header>
+
+          <div class="jsfund-workspace" id="jsfund-workspace">
+            <pre class="jsfund-scribble a" aria-hidden="true">const curso = 'Web';
+let aula = 7;
+console.log(typeof curso);</pre>
+            <pre class="jsfund-scribble b" aria-hidden="true">if (nota &gt;= 7) {
+  console.log('aprovado');
+} else { console.log('revisar'); }</pre>
+            <pre class="jsfund-scribble c" aria-hidden="true">for (let i = 0; i &lt; 3; i++) {
+  console.log(i);
+}</pre>
+            <pre class="jsfund-scribble d" aria-hidden="true">let n = 3;
+while (n &gt; 0) {
+  n--;
+}</pre>
+
+            <section class="jsfund-central" aria-live="polite">
+              <h2 class="table-title">Base da linguagem JavaScript</h2>
+              <div class="table-card">
+                <table class="jsfund-table" aria-describedby="jsfund-help jsfund-detail">
+                  <caption class="sr-only">Fundamentos de JavaScript: tipos de dados, declaração de variáveis, condicionais e laços.</caption>
+                  <thead>
+                    <tr><th scope="col">Assunto</th><th scope="col">Ideia principal</th></tr>
+                  </thead>
+                  <tbody id="jsfund-body">
+                    <tr tabindex="0" data-jsfund="types"><td><span class="jsfund-key">Tipos de dados</span></td><td>valores primitivos, objetos e o operador typeof</td></tr>
+                    <tr tabindex="0" data-jsfund="let"><td><span class="jsfund-key">let</span></td><td>variável de escopo de bloco que pode receber outro valor</td></tr>
+                    <tr tabindex="0" data-jsfund="const"><td><span class="jsfund-key">const</span></td><td>ligação de escopo de bloco que não pode ser reatribuída</td></tr>
+                    <tr tabindex="0" data-jsfund="var"><td><span class="jsfund-key">var</span></td><td>declaração legada com escopo de função e comportamento de hoisting</td></tr>
+                    <tr tabindex="0" data-jsfund="ifElse"><td><span class="jsfund-key">if / else</span></td><td>escolhe qual bloco executar a partir de uma condição</td></tr>
+                    <tr tabindex="0" data-jsfund="for"><td><span class="jsfund-key">for</span></td><td>repete um bloco com inicialização, condição e atualização</td></tr>
+                    <tr tabindex="0" data-jsfund="while"><td><span class="jsfund-key">while</span></td><td>repete enquanto uma condição continuar verdadeira</td></tr>
+                  </tbody>
+                </table>
+                <p id="jsfund-help" class="sr-only">Use Tab ou as setas para navegar. Clique ou pressione Enter em uma linha para atualizar os quadros de explicação e exemplo.</p>
+                <div class="jsfund-detail" id="jsfund-detail" role="status" aria-live="polite"><strong>Dica:</strong> selecione um fundamento. A explicação, a sintaxe e o exemplo executável aparecerão abaixo.</div>
+
+                <div class="jsfund-bottom-grid" aria-label="Quadros de explicação, sintaxe e exemplo">
+                  <article class="jsfund-boardlet" id="jsfund-explanation-board">
+                    <h3 id="jsfund-explanation-title">Explicação</h3>
+                    <p id="jsfund-explanation">JavaScript executa instruções e trabalha com valores. Comece selecionando “Tipos de dados”.</p>
+                  </article>
+                  <article class="jsfund-boardlet syntax" id="jsfund-syntax-board">
+                    <h3>Sintaxe + exemplo</h3>
+                    <pre class="jsfund-code"><code id="jsfund-code">// selecione um assunto</code></pre>
+                    <div class="jsfund-demo" id="jsfund-demo" aria-live="polite">O resultado do exemplo aparecerá aqui.</div>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+        <section id="board-jsfunc" class="board-screen jsfund-board-screen" hidden aria-labelledby="jsfunc-page-title">
+          <header class="title-wrap">
+            <h1 id="jsfunc-page-title" tabindex="-1">JavaScript: Funções</h1>
+            <p class="subtitle">Funções organizam, reutilizam e encapsulam comportamentos. Clique em um assunto para atualizar os quadros de explicação, sintaxe e exemplo.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-jsfund-from-jsfunc" aria-controls="board-jsfund">← apagar e voltar aos fundamentos de JavaScript</button>
+              <button type="button" class="board-switch" id="open-event-board" aria-controls="board-one">apagar este quadro e abrir eventos Web →</button>
+            </div>
+          </header>
+
+          <div class="jsfund-workspace" id="jsfunc-workspace">
+            <pre class="jsfund-scribble a" aria-hidden="true">function saudacao(nome) {
+  return `Olá, ${nome}!`;
+}</pre>
+            <pre class="jsfund-scribble b" aria-hidden="true">const somar = (a, b) =&gt; a + b;
+console.log(somar(2, 3));</pre>
+            <pre class="jsfund-scribble c" aria-hidden="true">[1, 2, 3].map(function (n) {
+  return n * 2;
+});</pre>
+            <pre class="jsfund-scribble d" aria-hidden="true">function executar(callback) {
+  callback('feito');
+}</pre>
+
+            <section class="jsfund-central" aria-live="polite">
+              <h2 class="table-title">Funções em JavaScript</h2>
+              <div class="table-card">
+                <table class="jsfund-table" aria-describedby="jsfunc-help jsfunc-detail">
+                  <caption class="sr-only">Conceitos fundamentais de funções em JavaScript com explicações, sintaxe e exemplos executáveis.</caption>
+                  <thead>
+                    <tr><th scope="col">Assunto</th><th scope="col">Ideia principal</th></tr>
+                  </thead>
+                  <tbody id="jsfunc-body">
+                    <tr tabindex="0" data-jsfunc="declaration"><td><span class="jsfund-key">Declaração de função</span></td><td>cria um bloco reutilizável com nome</td></tr>
+                    <tr tabindex="0" data-jsfunc="params"><td><span class="jsfund-key">Parâmetros e argumentos</span></td><td>recebem dados para a função trabalhar</td></tr>
+                    <tr tabindex="0" data-jsfunc="return"><td><span class="jsfund-key">return</span></td><td>devolve um resultado e encerra a execução da função</td></tr>
+                    <tr tabindex="0" data-jsfunc="anonymous"><td><span class="jsfund-key">Função anônima</span></td><td>função sem nome usada como valor ou argumento</td></tr>
+                    <tr tabindex="0" data-jsfunc="expression"><td><span class="jsfund-key">Expressão de função</span></td><td>armazena uma função em uma variável</td></tr>
+                    <tr tabindex="0" data-jsfunc="arrow"><td><span class="jsfund-key">Arrow function</span></td><td>sintaxe curta com =&gt; e comportamento próprio de this</td></tr>
+                    <tr tabindex="0" data-jsfunc="callback"><td><span class="jsfund-key">Callback</span></td><td>passa uma função para outra função executar depois</td></tr>
+                    <tr tabindex="0" data-jsfunc="scope"><td><span class="jsfund-key">Escopo da função</span></td><td>variáveis internas ficam limitadas ao contexto da função</td></tr>
+                  </tbody>
+                </table>
+                <p id="jsfunc-help" class="sr-only">Use Tab ou as setas para navegar. Clique ou pressione Enter em uma linha para atualizar os quadros de explicação e exemplo.</p>
+                <div class="jsfund-detail" id="jsfunc-detail" role="status" aria-live="polite"><strong>Dica:</strong> selecione um conceito de função. A explicação, a sintaxe e o exemplo executável aparecerão abaixo.</div>
+
+                <div class="jsfund-bottom-grid" aria-label="Quadros de explicação, sintaxe e exemplo sobre funções">
+                  <article class="jsfund-boardlet" id="jsfunc-explanation-board">
+                    <h3 id="jsfunc-explanation-title">Explicação</h3>
+                    <p id="jsfunc-explanation">Uma função agrupa instruções para que uma tarefa possa ser chamada quando necessário.</p>
+                  </article>
+                  <article class="jsfund-boardlet syntax" id="jsfunc-syntax-board">
+                    <h3>Sintaxe + exemplo</h3>
+                    <pre class="jsfund-code"><code id="jsfunc-code">// selecione um assunto</code></pre>
+                    <div class="jsfund-demo" id="jsfunc-demo" aria-live="polite">O resultado do exemplo aparecerá aqui.</div>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <div id="board-one" class="board-screen" hidden>
+        <header class="title-wrap">
+          <h1 id="page-title" tabindex="-1">Principais Eventos Web</h1>
+          <p class="subtitle">Um quadro que reage: explore os riscos, entenda o contexto e execute cada evento na prática.</p>
+          <div class="cycle-bar" aria-label="Controles do quadro dinâmico">
+            <span aria-hidden="true">✎ rabiscos de código mudam a cada 15 segundos</span>
+            <button type="button" class="cycle-control" id="cycle-control" aria-pressed="false">pausar troca automática</button>
+          </div>
+          <div class="board-nav">
+            <button type="button" class="board-switch back" id="back-to-jsfunc-board" aria-controls="board-jsfunc">← apagar e voltar às funções em JavaScript</button>
+            <button type="button" class="board-switch" id="open-async-board" aria-controls="board-two">apagar este quadro e abrir funções assíncronas →</button>
+          </div>
+        </header>
+
+        <div class="workspace" id="workspace">
+          <div class="ambient-code-layer" aria-hidden="true">
+            <pre class="code-scribble" data-scribble="0"></pre>
+            <pre class="code-scribble" data-scribble="1"></pre>
+            <pre class="code-scribble" data-scribble="2"></pre>
+            <pre class="code-scribble" data-scribble="3"></pre>
+          </div>
+          <svg class="connections" viewBox="0 0 1200 690" preserveAspectRatio="none" aria-label="Conexões do mapa mental">
+            <path class="connector events-line" data-concept="events" role="button" tabindex="0" aria-label="Abrir contexto sobre Eventos" d="M190,105 C300,125 350,170 430,205" />
+            <path class="connector javascript-line" data-concept="javascript" role="button" tabindex="0" aria-label="Abrir contexto sobre JavaScript" d="M1015,115 C900,125 850,165 770,205" />
+            <path class="connector ecmascript-line" data-concept="ecmascript" role="button" tabindex="0" aria-label="Abrir contexto sobre ECMAScript" d="M190,345 C300,340 345,345 420,350" />
+            <path class="connector react-line" data-concept="react" role="button" tabindex="0" aria-label="Abrir contexto sobre React" d="M1015,340 C900,340 855,345 780,350" />
+            <path class="connector jquery-line" data-concept="jquery" role="button" tabindex="0" aria-label="Abrir contexto sobre jQuery" d="M230,610 C330,560 370,520 445,485" />
+            <path class="connector ajax-line" data-concept="ajax" role="button" tabindex="0" aria-label="Abrir contexto sobre AJAX" d="M970,610 C875,560 830,520 755,485" />
+          </svg>
+
+          <button type="button" class="note events concept-trigger" data-concept="events" aria-pressed="false">
+            <h2>Eventos</h2>
+            <p>São <span class="keyword">notificações do navegador</span> sobre mudanças na interface: clique, foco, teclado, envio, carregamento e movimento do ponteiro.</p>
+          </button>
+
+          <button type="button" class="note javascript concept-trigger" data-concept="javascript" aria-pressed="false">
+            <h2>JavaScript</h2>
+            <p>Linguagem que coordena a <span class="keyword">lógica da interface</span>: escuta eventos, manipula o DOM, valida dados e conversa com APIs.</p>
+          </button>
+
+          <button type="button" class="note ecmascript concept-trigger" data-concept="ecmascript" aria-pressed="false">
+            <h2>ECMAScript</h2>
+            <p>É a <span class="keyword">especificação</span> que define a sintaxe e o comportamento da linguagem: módulos, Promises, classes, async/await e mais.</p>
+          </button>
+
+          <section class="central-panel" aria-live="polite">
+            <div id="events-view" class="panel-view">
+              <h2 class="table-title" id="table-heading">Tabela de eventos principais</h2>
+              <div class="table-card">
+                <table aria-describedby="table-help event-detail">
+                  <caption class="sr-only">Principais eventos Web e suas funções.</caption>
+                  <thead>
+                    <tr><th scope="col">Evento</th><th scope="col">O que acontece</th></tr>
+                  </thead>
+                  <tbody id="events-body">
+                    <tr tabindex="0" data-event="onBlur" data-detail="Ocorre quando um elemento que tinha foco deixa de ser o elemento ativo. É comum para validações após o usuário terminar de editar um campo."><td><span class="event-name">onBlur</span></td><td>o elemento perde o foco</td></tr>
+                    <tr tabindex="0" data-event="onChange" data-detail="Ocorre quando um controle confirma uma mudança de valor. Em selects é imediato; em campos de texto, para reação a cada digitação, costuma-se usar o evento input."><td><span class="event-name">onChange</span></td><td>o valor confirmado do controle muda</td></tr>
+                    <tr tabindex="0" data-event="onClick" data-detail="Representa a ativação por clique ou, em controles nativos como button, também por teclado. Costuma iniciar ações, abrir painéis ou alterar o estado da interface."><td><span class="event-name">onClick</span></td><td>o usuário ativa um elemento</td></tr>
+                    <tr tabindex="0" data-event="onFocus" data-detail="Ocorre quando um elemento recebe foco por mouse, toque assistido ou teclado. É útil para dicas, realces e preparação de campos de formulário."><td><span class="event-name">onFocus</span></td><td>o elemento recebe foco</td></tr>
+                    <tr tabindex="0" data-event="onKeyPress" data-detail="keypress é um evento legado. Em código atual, keydown e keyup são preferidos porque tratam melhor teclas de controle e oferecem comportamento mais previsível."><td><span class="event-name">onKeyPress</span></td><td>uma tecla é pressionada (legado)</td></tr>
+                    <tr tabindex="0" data-event="onLoad" data-detail="Indica que um recurso terminou de carregar. Pode ser observado em window, imagens, scripts e outros recursos que dependem de carregamento externo."><td><span class="event-name">onLoad</span></td><td>um recurso termina de carregar</td></tr>
+                    <tr tabindex="0" data-event="onMouseOver" data-detail="Dispara quando o ponteiro entra no elemento ou em seus descendentes. Como há propagação, pode ocorrer mais vezes que mouseenter em estruturas com elementos filhos."><td><span class="event-name">onMouseOver</span></td><td>o ponteiro entra na área do elemento</td></tr>
+                    <tr tabindex="0" data-event="onMouseOut" data-detail="Dispara quando o ponteiro deixa o elemento ou muda para um descendente relacionado. Para entradas e saídas sem propagação interna, mouseleave pode ser mais apropriado."><td><span class="event-name">onMouseOut</span></td><td>o ponteiro sai da área do elemento</td></tr>
+                    <tr tabindex="0" data-event="onSubmit" data-detail="Pertence ao formulário e ocorre quando o envio é solicitado. É o ponto ideal para validar dados e, se necessário, usar preventDefault() para impedir o recarregamento padrão."><td><span class="event-name">onSubmit</span></td><td>o formulário solicita envio</td></tr>
+                  </tbody>
+                </table>
+
+                <p id="table-help" class="sr-only">Passe o mouse ou navegue pelo teclado para visualizar a definição. Clique ou pressione Enter para abrir a demonstração real do evento.</p>
+                <div id="event-detail" class="event-detail" role="status" aria-live="polite">
+                  <strong>Dica:</strong> passe o mouse para contextualizar e clique em uma linha para testar o evento na prática.
+                </div>
+
+                <section id="demo-lab" class="demo-lab" aria-labelledby="demo-title">
+                  <h3 id="demo-title">Experimente um evento</h3>
+                  <p id="demo-instruction">Escolha uma linha da tabela. Um exemplo interativo aparecerá aqui.</p>
+                  <div id="demo-stage" class="demo-stage"></div>
+                  <div id="event-log" class="event-log" role="status" aria-live="polite"><strong>Status:</strong> aguardando interação.</div>
+                  <section class="syntax-panel" aria-labelledby="syntax-title">
+                    <div class="syntax-head">
+                      <span id="syntax-title">Sintaxe em JavaScript</span>
+                      <span>o código muda junto com o exemplo</span>
+                    </div>
+                    <pre class="syntax-code"><code id="syntax-code"></code></pre>
+                  </section>
+                </section>
+              </div>
+            </div>
+
+            <div id="concept-view" class="panel-view" hidden>
+              <article class="concept-card" id="concept-card">
+                <p class="concept-kicker">contexto ampliado • mapa mental</p>
+                <h2 id="concept-title">Conceito</h2>
+                <p id="concept-summary" class="concept-summary"></p>
+                <div class="concept-grid">
+                  <section class="scribble-box"><h3>Em poucas palavras</h3><p id="concept-simple"></p></section>
+                  <section class="scribble-box"><h3>Na página dinâmica</h3><p id="concept-dynamic"></p></section>
+                </div>
+                <div class="relation-strip" id="concept-relation"></div>
+                <button type="button" class="back-button" id="back-to-events">← voltar para os eventos</button>
+              </article>
+            </div>
+          </section>
+
+          <button type="button" class="note react concept-trigger" data-concept="react" aria-pressed="false">
+            <h2>React</h2>
+            <p>Biblioteca declarativa baseada em <span class="keyword">componentes e estado</span>. Eventos como <b>onClick</b> alteram estado e a interface é renderizada novamente.</p>
+          </button>
+
+          <button type="button" class="note jquery concept-trigger" data-concept="jquery" aria-pressed="false">
+            <h2>jQuery</h2>
+            <p>Biblioteca clássica que abstraiu diferenças entre navegadores e simplificou <span class="keyword">DOM</span>, eventos, efeitos e AJAX.</p>
+          </button>
+
+          <button type="button" class="note ajax concept-trigger" data-concept="ajax" aria-pressed="false">
+            <h2>AJAX</h2>
+            <p>Técnica de comunicação <span class="keyword">assíncrona</span>: a página envia ou recebe dados e atualiza apenas a região necessária, sem reload completo.</p>
+          </button>
+
+          <span class="doodle spark-1" aria-hidden="true"></span>
+          <span class="doodle spark-2" aria-hidden="true"></span>
+        </div>
+
+        </div>
+
+        <section id="board-two" class="board-screen async-board-screen" hidden aria-labelledby="async-page-title">
+          <header class="title-wrap">
+            <h1 id="async-page-title" tabindex="-1">Funções Assíncronas em JavaScript</h1>
+            <p class="subtitle">O código inicia uma tarefa, continua responsivo e retoma o fluxo quando a Promise produz um resultado.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-event-board" aria-controls="board-one">← apagar e voltar ao quadro de eventos</button>
+              <button type="button" class="board-switch" id="open-compare-board" aria-controls="board-compare">apagar este quadro e abrir semelhanças CSS × JavaScript →</button>
+            </div>
+          </header>
+
+          <div class="async-workspace" id="async-workspace">
+            <pre class="async-scribble s1" aria-hidden="true">async function carregar() {
+  return await buscar();
+}</pre>
+            <pre class="async-scribble s2" aria-hidden="true">const limite = 3;
+let tentativa = 0;</pre>
+            <pre class="async-scribble s3" aria-hidden="true">if (res.ok) {
+  dados = await res.json();
+} else { throw new Error(); }</pre>
+            <pre class="async-scribble s4" aria-hidden="true">for (const id of ids) {
+  await carregar(id);
+}</pre>
+            <pre class="async-scribble s5" aria-hidden="true">const mensagem = ok
+  ? 'pronto'
+  : 'erro';</pre>
+
+            <section class="async-central" aria-live="polite">
+              <h2 class="table-title">Mapa do fluxo assíncrono</h2>
+              <div class="table-card">
+                <table class="async-table" aria-describedby="async-help async-detail">
+                  <caption class="sr-only">Recursos principais usados em funções assíncronas JavaScript.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Recurso</th>
+                      <th scope="col">Papel no fluxo</th>
+                      <th scope="col">Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="async-body">
+                    <tr tabindex="0" data-async="asyncFunction"><td><span class="async-name">async function</span></td><td>declara uma função assíncrona</td><td>sempre retorna uma Promise</td></tr>
+                    <tr tabindex="0" data-async="await"><td><span class="async-name">await</span></td><td>aguarda uma Promise dentro de async</td><td>retoma com o valor resolvido</td></tr>
+                    <tr tabindex="0" data-async="promise"><td><span class="async-name">Promise</span></td><td>representa um resultado futuro</td><td>fulfilled ou rejected</td></tr>
+                    <tr tabindex="0" data-async="fetch"><td><span class="async-name">fetch()</span></td><td>inicia uma requisição HTTP</td><td>Promise com Response</td></tr>
+                    <tr tabindex="0" data-async="thenCatch"><td><span class="async-name">then / catch</span></td><td>encadeia sucesso e erro</td><td>novo fluxo de Promises</td></tr>
+                    <tr tabindex="0" data-async="promiseAll"><td><span class="async-name">Promise.all()</span></td><td>aguarda tarefas em paralelo</td><td>array com todos os resultados</td></tr>
+                  </tbody>
+                </table>
+
+                <p id="async-help" class="sr-only">Passe o mouse ou use Tab para navegar. Clique ou pressione Enter para abrir a sintaxe e executar uma simulação.</p>
+                <div class="async-detail" id="async-detail" role="status" aria-live="polite">
+                  <strong>Dica:</strong> selecione uma linha para ver a sintaxe e acompanhar o fluxo assíncrono sem recarregar a página.
+                </div>
+
+                <section class="async-lab" aria-labelledby="async-demo-title">
+                  <h3 id="async-demo-title">Fluxo em execução</h3>
+                  <p id="async-explanation">Escolha um recurso da tabela.</p>
+                  <div class="async-flow" id="async-flow" aria-live="polite"></div>
+                  <div>
+                    <button type="button" class="async-run" id="async-run">executar demonstração</button>
+                    <span class="async-log" id="async-log" role="status" aria-live="polite">aguardando…</span>
+                  </div>
+
+                  <section class="syntax-panel" aria-labelledby="async-syntax-title">
+                    <div class="syntax-head">
+                      <span id="async-syntax-title">Sintaxe em JavaScript</span>
+                      <span>exemplo do recurso selecionado</span>
+                    </div>
+                    <pre class="syntax-code"><code id="async-syntax-code"></code></pre>
+                  </section>
+                </section>
+              </div>
+            </section>
+          </div>
+
+        </section>
+
+
+        <section id="board-compare" class="board-screen compare-board-screen" hidden aria-labelledby="compare-page-title">
+          <header class="title-wrap">
+            <h1 id="compare-page-title" tabindex="-1">Semelhanças: CSS × JavaScript</h1>
+            <p class="subtitle">CSS e JavaScript não fazem a mesma função, mas frequentemente trabalham sobre os mesmos elementos e objetivos da interface. Clique em uma linha para comparar as duas sintaxes.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-async-from-compare" aria-controls="board-two">← apagar e voltar às funções assíncronas</button>
+              <button type="button" class="board-switch" id="open-dom-board" aria-controls="board-dom">apagar este quadro e abrir JavaScript ↔ HTML →</button>
+            </div>
+          </header>
+
+          <div class="compare-workspace" id="compare-workspace">
+            <pre class="compare-scribble a" aria-hidden="true">.ativo {
+  color: blue;
+  transform: scale(1.05);
+}</pre>
+            <pre class="compare-scribble b" aria-hidden="true">const el = document
+  .querySelector('.ativo');</pre>
+            <pre class="compare-scribble c" aria-hidden="true">:hover { opacity: .8; }
+@media (width &lt; 700px) { ... }</pre>
+            <pre class="compare-scribble d" aria-hidden="true">el.classList.toggle('ativo');
+el.animate([...], {duration: 300});</pre>
+
+            <section class="compare-central" aria-live="polite">
+              <div id="compare-table-view" class="compare-table-view">
+                <h2 class="table-title">Onde CSS e JavaScript se encontram</h2>
+                <div class="table-card">
+                  <table class="compare-table" aria-describedby="compare-help compare-hint">
+                    <caption class="sr-only">Tabela de pontos em que CSS e JavaScript trabalham sobre objetivos semelhantes na interface Web.</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Objetivo em comum</th>
+                        <th scope="col">CSS</th>
+                        <th scope="col">JavaScript</th>
+                      </tr>
+                    </thead>
+                    <tbody id="compare-body">
+                      <tr tabindex="0" data-compare="selectors"><td><span class="compare-key">Selecionar elementos</span></td><td><span class="compare-css-word">seletores</span></td><td><span class="compare-js-word">querySelector()</span></td></tr>
+                      <tr tabindex="0" data-compare="classes"><td><span class="compare-key">Trabalhar com classes</span></td><td><span class="compare-css-word">.classe</span></td><td><span class="compare-js-word">classList</span></td></tr>
+                      <tr tabindex="0" data-compare="ids"><td><span class="compare-key">Trabalhar com IDs</span></td><td><span class="compare-css-word">#id</span></td><td><span class="compare-js-word">getElementById()</span></td></tr>
+                      <tr tabindex="0" data-compare="variables"><td><span class="compare-key">Guardar valores reutilizáveis</span></td><td><span class="compare-css-word">--variável</span></td><td><span class="compare-js-word">let / const</span></td></tr>
+                      <tr tabindex="0" data-compare="styles"><td><span class="compare-key">Alterar aparência</span></td><td><span class="compare-css-word">propriedades</span></td><td><span class="compare-js-word">style / classList</span></td></tr>
+                      <tr tabindex="0" data-compare="states"><td><span class="compare-key">Responder a estados</span></td><td><span class="compare-css-word">:hover / :focus</span></td><td><span class="compare-js-word">eventos</span></td></tr>
+                      <tr tabindex="0" data-compare="responsive"><td><span class="compare-key">Responder à tela</span></td><td><span class="compare-css-word">@media</span></td><td><span class="compare-js-word">matchMedia()</span></td></tr>
+                      <tr tabindex="0" data-compare="animation"><td><span class="compare-key">Criar movimento</span></td><td><span class="compare-css-word">transition / @keyframes</span></td><td><span class="compare-js-word">animate()</span></td></tr>
+                      <tr tabindex="0" data-compare="visibility"><td><span class="compare-key">Mostrar e ocultar</span></td><td><span class="compare-css-word">display / visibility</span></td><td><span class="compare-js-word">hidden / classList</span></td></tr>
+                    </tbody>
+                  </table>
+                  <p id="compare-help" class="sr-only">Use Tab ou as setas para navegar pelas linhas. Pressione Enter ou Espaço para abrir a comparação completa.</p>
+                  <p class="compare-hint" id="compare-hint"><strong>Dica:</strong> clique em uma linha. O quadro será substituído por uma comparação com sintaxe CSS, sintaxe JavaScript e o ponto de semelhança entre as duas abordagens.</p>
+                </div>
+              </div>
+
+              <div id="compare-detail-view" class="compare-detail-view" hidden>
+                <article class="compare-card" id="compare-card" tabindex="-1">
+                  <h2 id="compare-detail-title">Comparação</h2>
+                  <p class="compare-lead" id="compare-detail-lead"></p>
+
+                  <div class="compare-code-grid">
+                    <section class="compare-code-panel" aria-labelledby="compare-css-title">
+                      <h3 id="compare-css-title">CSS — sintaxe</h3>
+                      <pre class="compare-code"><code id="compare-css-code"></code></pre>
+                    </section>
+                    <section class="compare-code-panel js" aria-labelledby="compare-js-title">
+                      <h3 id="compare-js-title">JavaScript — sintaxe</h3>
+                      <pre class="compare-code"><code id="compare-js-code"></code></pre>
+                    </section>
+                  </div>
+
+                  <section class="compare-similarity" aria-labelledby="compare-similarity-title">
+                    <h3 id="compare-similarity-title">O que há de semelhante?</h3>
+                    <p id="compare-similarity-text"></p>
+                    <p class="compare-note" id="compare-difference-text"></p>
+                  </section>
+
+                  <button type="button" class="back-button compare-back" id="back-to-compare-table">← voltar para a tabela</button>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+
+        <section id="board-dom" class="board-screen html-board-screen dom-board-screen" hidden aria-labelledby="dom-page-title">
+          <header class="title-wrap">
+            <h1 id="dom-page-title" tabindex="-1">JavaScript ↔ HTML: Comunicação pelo DOM</h1>
+            <p class="subtitle">O navegador transforma o HTML em DOM. O JavaScript usa esse DOM para localizar elementos, ler valores, escutar ações e modificar a página. Clique em cada forma de comunicação.</p>
+            <div class="board-nav">
+              <button type="button" class="board-switch back" id="back-to-compare-from-dom" aria-controls="board-compare">← apagar e voltar às semelhanças CSS × JavaScript</button>
+            </div>
+          </header>
+
+          <div class="workspace dom-workspace" id="dom-workspace">
+            <pre class="dom-scribble a" aria-hidden="true">const titulo = document
+  .querySelector('h1');</pre>
+            <pre class="dom-scribble b" aria-hidden="true">botao.addEventListener(
+  'click', executar
+);</pre>
+            <pre class="dom-scribble c" aria-hidden="true">input.value
+card.dataset.id
+el.textContent</pre>
+            <pre class="dom-scribble d" aria-hidden="true">el.classList.toggle('ativo');
+el.style.color = 'blue';</pre>
+            <pre class="dom-scribble e" aria-hidden="true">const novo = document.createElement('li');
+lista.append(novo);</pre>
+
+            <section class="dom-central" aria-live="polite">
+              <h2 class="table-title">Principais formas de comunicação entre HTML e JavaScript</h2>
+              <div class="table-card">
+                <table class="dom-table" aria-describedby="dom-table-help dom-detail">
+                  <caption class="sr-only">Principais APIs e propriedades usadas pelo JavaScript para acessar e modificar elementos do HTML por meio do DOM.</caption>
+                  <thead>
+                    <tr><th scope="col">Forma de comunicação</th><th scope="col">O que faz</th></tr>
+                  </thead>
+                  <tbody id="dom-body">
+                    <tr tabindex="0" data-dom="querySelector"><td><span class="dom-method">querySelector()</span></td><td><span class="dom-purpose">localiza o primeiro elemento</span> por seletor CSS</td></tr>
+                    <tr tabindex="0" data-dom="querySelectorAll"><td><span class="dom-method">querySelectorAll()</span></td><td>localiza <span class="dom-purpose">vários elementos</span> por seletor CSS</td></tr>
+                    <tr tabindex="0" data-dom="getElementById"><td><span class="dom-method">getElementById()</span></td><td>localiza um elemento pelo atributo <span class="dom-purpose">id</span></td></tr>
+                    <tr tabindex="0" data-dom="getElementsByClassName"><td><span class="dom-method">getElementsByClassName()</span></td><td>obtém elementos que possuem uma <span class="dom-purpose">classe</span></td></tr>
+                    <tr tabindex="0" data-dom="addEventListener"><td><span class="dom-method">addEventListener()</span></td><td>faz o JavaScript <span class="dom-purpose">escutar eventos</span> do HTML</td></tr>
+                    <tr tabindex="0" data-dom="textContent"><td><span class="dom-method">textContent</span></td><td>lê ou altera o <span class="dom-purpose">texto</span> de um elemento</td></tr>
+                    <tr tabindex="0" data-dom="innerHTML"><td><span class="dom-method">innerHTML</span></td><td>lê ou altera a <span class="dom-purpose">marcação HTML interna</span></td></tr>
+                    <tr tabindex="0" data-dom="value"><td><span class="dom-method">value</span></td><td>lê ou altera o <span class="dom-purpose">valor de campos</span> de formulário</td></tr>
+                    <tr tabindex="0" data-dom="classList"><td><span class="dom-method">classList</span></td><td>adiciona, remove ou alterna <span class="dom-purpose">classes CSS</span></td></tr>
+                    <tr tabindex="0" data-dom="style"><td><span class="dom-method">style</span></td><td>altera <span class="dom-purpose">estilos inline</span> pelo JavaScript</td></tr>
+                    <tr tabindex="0" data-dom="attributes"><td><span class="dom-method">getAttribute() / setAttribute()</span></td><td>lê ou modifica <span class="dom-purpose">atributos HTML</span></td></tr>
+                    <tr tabindex="0" data-dom="dataset"><td><span class="dom-method">dataset</span></td><td>troca dados entre HTML e JS por <span class="dom-purpose">data-*</span></td></tr>
+                    <tr tabindex="0" data-dom="createElement"><td><span class="dom-method">createElement() + append()</span></td><td><span class="dom-purpose">cria e insere elementos</span> no documento</td></tr>
+                    <tr tabindex="0" data-dom="formData"><td><span class="dom-method">FormData</span></td><td>lê os campos de um <span class="dom-purpose">formulário HTML</span></td></tr>
+                  </tbody>
+                </table>
+                <p id="dom-table-help" class="sr-only">Use Tab ou as setas para navegar. Pressione Enter ou Espaço para mostrar explicação, HTML e JavaScript do item.</p>
+
+                <div id="dom-detail" class="dom-detail" role="status" aria-live="polite"><strong>Dica:</strong> selecione uma linha para ver como o HTML fornece o elemento ou dado e como o JavaScript se comunica com ele pelo DOM.</div>
+
+                <div class="dom-example" id="dom-example">
+                  <section class="dom-example-box" aria-labelledby="dom-html-title">
+                    <h3 id="dom-html-title">HTML — ponto de contato</h3>
+                    <pre class="dom-code"><code id="dom-html-code"></code></pre>
+                  </section>
+                  <section class="dom-example-box js" aria-labelledby="dom-js-title">
+                    <h3 id="dom-js-title">JavaScript — comunicação</h3>
+                    <pre class="dom-code"><code id="dom-js-code"></code></pre>
+                  </section>
+                  <section class="dom-result-box" aria-labelledby="dom-result-title">
+                    <h3 id="dom-result-title">O que acontece na página</h3>
+                    <div class="dom-preview" id="dom-preview"></div>
+                  </section>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <div class="wipe-streak" id="wipe-streak" aria-hidden="true"></div>
+        <div class="sr-only" id="board-announcer" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="tray" aria-hidden="true">
+        <span class="marker blue"></span><span class="marker red"></span><span class="marker green"></span><span class="marker purple"></span><span class="eraser"></span>
+      </div>
+    </section>
+  </main>
+
+  <aside class="a11y-widget" aria-label="Ajuda de acessibilidade">
+    <button
+      type="button"
+      class="a11y-fab"
+      id="a11y-toggle"
+      aria-label="Abrir tutorial de acessibilidade"
+      aria-controls="a11y-panel"
+      aria-expanded="false"
+      title="Acessibilidade"
+    >♿</button>
+
+    <section class="a11y-panel" id="a11y-panel" hidden aria-live="polite">
+      <p><strong>Tutorial de acessibilidade:</strong> na tela inicial, use <kbd>Tab</kbd> ou as setas para navegar pelo sumário; <kbd>Enter</kbd> ou <kbd>Espaço</kbd> abre a aula escolhida. Nos demais quadros, use <kbd>Tab</kbd> para navegar pelos elementos interativos e <kbd>Esc</kbd> para voltar. Nos quadros de HTML, CSS e Eventos, os conceitos e riscos coloridos do mapa mental também podem ser selecionados pelo teclado. Em CSS Parte 2, a tabela abre quadros de explicação e referências filtráveis. No quadro de Principais Propriedades CSS, cada propriedade abre sintaxe e exemplo, e os conceitos name, class/className e id mostram sua declaração em HTML, CSS e JavaScript. No quadro de Fundamentos de JavaScript, cada linha atualiza os quadros de explicação, sintaxe e demonstração; as setas também navegam pelas linhas. No quadro de Principais Tags, cada tag funciona como um botão acessível. No quadro de semelhanças, cada linha compara uma sintaxe CSS com uma sintaxe JavaScript. No último quadro, cada linha mostra uma forma de comunicação entre HTML e JavaScript pelo DOM, com sintaxe HTML, sintaxe JavaScript e resultado. O conteúdo muda sem recarregar a página.</p>
+    </section>
+  </aside>
+
+
+
+  <aside class="draw-widget" aria-label="Quadro branco livre">
+    <button
+      type="button"
+      class="draw-fab"
+      id="draw-toggle"
+      aria-label="Abrir quadro branco para desenhar"
+      aria-controls="draw-overlay"
+      aria-expanded="false"
+      title="Quadro branco livre"
+    >⬜</button>
+  </aside>
+
+  <section class="draw-overlay" id="draw-overlay" hidden aria-modal="true" role="dialog" aria-labelledby="free-board-title">
+    <div class="free-board-shell">
+      <header class="free-board-toolbar">
+        <h2 id="free-board-title" tabindex="-1">Quadro branco livre</h2>
+        <button type="button" class="marker-choice black is-selected" data-draw-color="#111827" aria-pressed="true" aria-label="Usar marcador preto" title="Preto"></button>
+        <button type="button" class="marker-choice red" data-draw-color="#b42318" aria-pressed="false" aria-label="Usar marcador vermelho" title="Vermelho"></button>
+        <button type="button" class="marker-choice blue" data-draw-color="#084f9f" aria-pressed="false" aria-label="Usar marcador azul" title="Azul"></button>
+        <button type="button" class="free-board-action clear" id="draw-clear">apagar tudo</button>
+        <button type="button" class="free-board-action close" id="draw-close">fechar</button>
+      </header>
+      <div class="free-board-canvas-wrap" id="free-board-canvas-wrap">
+        <canvas id="free-board-canvas" aria-label="Área livre para desenhar com marcador"></canvas>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Único JavaScript referenciado pelo HTML.
+       O script principal carrega e coordena os demais arquivos .js. -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,2548 @@
+/* Primeiro quadro: fundamentos de HTML + história da Web. */
+    .html-board-screen .title-wrap { margin-bottom: 14px; }
+    .html-workspace {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .html-central {
+      width: min(820px, 59vw);
+      min-height: 550px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(.14deg);
+    }
+    .html-table th:first-child, .html-table td:first-child { width: 34%; }
+    .html-tag {
+      color: var(--ink-red);
+      font-weight: 900;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    }
+    .html-detail {
+      min-height: 68px;
+      margin-top: 11px;
+      padding: 10px 13px;
+      border: 2px dashed var(--ink-green);
+      border-radius: 12px 16px 11px 14px;
+      background: rgba(240,253,244,.58);
+      color: var(--ink-black);
+      line-height: 1.35;
+    }
+    .html-detail strong { color: var(--ink-red); }
+    .html-example {
+      margin-top: 11px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 11px;
+      align-items: stretch;
+    }
+    .html-example-box {
+      border: 3px solid var(--ink-blue);
+      border-radius: 15px 11px 18px 12px;
+      background: rgba(239,246,255,.58);
+      padding: 11px 12px;
+      min-width: 0;
+    }
+    .html-example-box.preview { border-color: var(--ink-orange); background: rgba(255,251,235,.58); }
+    .html-example-box h3 { margin: 0 0 7px; color: var(--ink-blue); font-size: 1.02rem; }
+    .html-example-box.preview h3 { color: var(--ink-orange); }
+    .html-source {
+      margin: 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.77rem,.9vw,.9rem);
+      line-height: 1.45;
+      color: var(--ink-black);
+    }
+    .html-preview {
+      min-height: 112px;
+      display: grid;
+      align-content: center;
+      gap: 7px;
+      padding: 7px;
+      border: 2px dashed rgba(180,83,9,.45);
+      border-radius: 10px;
+      background: rgba(255,255,255,.68);
+    }
+    .html-preview h1, .html-preview h2, .html-preview h3, .html-preview p { margin: 0; text-shadow: none; }
+    .html-preview h1 { color: var(--ink-blue); font-size: 1.55rem; }
+    .html-preview h2 { color: var(--ink-purple); font-size: 1.22rem; }
+    .html-preview h3 { color: var(--ink-green); font-size: 1.05rem; }
+    .html-preview a { color: var(--ink-blue); font-weight: 800; text-decoration-thickness: 2px; }
+    .html-preview .browser-title {
+      border: 2px solid #94a3b8;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--ink-purple);
+    }
+
+    .html-note { width: min(245px, 21vw); }
+    .web-history { top: 1%; left: 1%; color: var(--ink-blue); transform: rotate(-3deg); }
+    .browser-wars { top: 2%; right: 1%; color: var(--ink-red); transform: rotate(2.5deg); }
+    .ai-html { top: 38%; left: 0; color: var(--ink-purple); transform: rotate(1.2deg); }
+    .html5-concept { top: 37%; right: 0; color: var(--ink-orange); transform: rotate(-2.1deg); }
+    .css-concept { bottom: 0; left: 4%; color: var(--ink-green); transform: rotate(-2deg); }
+    .js-concept { bottom: 0; right: 4%; color: var(--ink-blue); transform: rotate(2.1deg); }
+    .html-note p { color: var(--ink-black); }
+    .html-workspace.context-mode .html-note { opacity: .18; filter: blur(.2px); }
+    .html-workspace.context-mode .html-note.is-selected { opacity: 1; filter: none; transform: rotate(0deg) scale(1.08); z-index: 7; }
+    .html-workspace.context-mode .html-connector { opacity: .12; }
+    .html-workspace.context-mode .html-connector.is-active { opacity: .95; stroke-width: 7; }
+
+    .web-history-line { color: var(--ink-blue); }
+    .browser-wars-line { color: var(--ink-red); }
+    .ai-html-line { color: var(--ink-purple); }
+    .html5-line { color: var(--ink-orange); }
+    .css-line { color: var(--ink-green); }
+    .js-line { color: var(--ink-blue); }
+
+    .html-concept-card .concept-grid { grid-template-columns: 1fr 1fr; }
+    .html-concept-card .history-note {
+      margin-top: 2px;
+      padding: 9px 12px;
+      border: 2px dashed var(--concept-color, var(--ink-purple));
+      border-radius: 11px 15px 9px 14px;
+      background: rgba(255,255,255,.52);
+      line-height: 1.32;
+    }
+
+
+    /* Segundo quadro: principais tags HTML. A tabela contém somente as tags. */
+    .tags-board-screen .title-wrap { margin-bottom: 14px; }
+    .tags-workspace {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .tags-central {
+      width: min(980px, 78vw);
+      min-height: 565px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(-.08deg);
+    }
+    .tags-grid-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: separate;
+      border-spacing: 7px;
+      background: transparent;
+      border: 0;
+    }
+    .tags-grid-table td {
+      width: 25%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+    .tags-grid-table tbody tr:hover,
+    .tags-grid-table tbody tr:focus-within,
+    .tags-grid-table tbody tr.is-active {
+      transform: none;
+      background: transparent;
+      box-shadow: none;
+    }
+    .tag-chip {
+      width: 100%;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      border: 2px solid currentColor;
+      border-radius: 13px 10px 15px 11px;
+      background: rgba(255,255,255,.66);
+      color: var(--ink-blue);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.84rem, 1.12vw, 1rem);
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 3px 0 color-mix(in srgb, currentColor 12%, transparent);
+      transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+    }
+    .tags-grid-table tr:nth-child(4n+1) .tag-chip { color: var(--ink-red); }
+    .tags-grid-table tr:nth-child(4n+2) .tag-chip { color: var(--ink-blue); }
+    .tags-grid-table tr:nth-child(4n+3) .tag-chip { color: var(--ink-green); }
+    .tags-grid-table tr:nth-child(4n+4) .tag-chip { color: var(--ink-purple); }
+    .tag-chip:hover,
+    .tag-chip:focus-visible,
+    .tag-chip.is-active {
+      background: #fff;
+      transform: rotate(-.5deg) scale(1.045);
+      box-shadow: 0 7px 16px rgba(15,23,42,.12);
+      outline: 3px dashed var(--focus);
+      outline-offset: 2px;
+      z-index: 2;
+      position: relative;
+    }
+    .tag-chip.is-active { outline-style: solid; }
+    .tags-hint {
+      margin: 10px 0 0;
+      text-align: center;
+      color: var(--ink-green);
+      font-weight: 800;
+    }
+    .tag-detail-card {
+      min-height: 520px;
+      --concept-color: var(--ink-blue);
+    }
+    .tag-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 13px 0;
+    }
+    .tag-detail-box {
+      border: 3px solid var(--concept-color);
+      border-radius: 14px 10px 17px 12px;
+      background: rgba(255,255,255,.6);
+      padding: 11px 13px;
+      min-width: 0;
+    }
+    .tag-detail-box h3 { margin: 0 0 7px; color: var(--concept-color); font-size: 1rem; }
+    .tag-detail-box p { margin: 0; line-height: 1.35; }
+    .tag-syntax {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      overflow-x: auto;
+      color: var(--ink-black);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.78rem, .96vw, .92rem);
+      line-height: 1.48;
+    }
+    .tag-event-strip {
+      margin: 12px 0;
+      border-left: 6px solid var(--ink-orange);
+      background: rgba(255,247,237,.72);
+      border-radius: 8px 13px 11px 8px;
+      padding: 9px 12px;
+      color: var(--ink-black);
+    }
+    .tag-event-strip strong { color: var(--ink-orange); }
+    .tag-example-render {
+      min-height: 82px;
+      display: grid;
+      align-content: center;
+      gap: 6px;
+      border: 2px dashed rgba(22,101,52,.5);
+      border-radius: 10px;
+      background: rgba(240,253,244,.48);
+      padding: 9px 10px;
+    }
+    .tag-example-render img { max-width: 150px; height: auto; border-radius: 8px; }
+    .tags-scribble {
+      position: absolute;
+      z-index: 1;
+      margin: 0;
+      pointer-events: none;
+      opacity: .52;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.7rem, .95vw, .9rem);
+      line-height: 1.35;
+      white-space: pre-wrap;
+    }
+    .tags-scribble.t1 { top: 4%; left: 1%; color: var(--ink-red); transform: rotate(-4deg); }
+    .tags-scribble.t2 { top: 8%; right: 1%; color: var(--ink-blue); transform: rotate(3deg); }
+    .tags-scribble.t3 { bottom: 3%; left: 2%; color: var(--ink-green); transform: rotate(2deg); }
+    .tags-scribble.t4 { bottom: 4%; right: 2%; color: var(--ink-purple); transform: rotate(-3deg); }
+
+    @media (max-width: 900px) {
+      .tags-central { width: min(94vw, 860px); }
+      .tags-grid-table { border-spacing: 5px; }
+      .tag-chip { min-height: 44px; }
+    }
+    @media (max-width: 620px) {
+      .tags-workspace { min-height: auto; padding: 6px 0 25px; }
+      .tags-central { width: 100%; min-height: auto; }
+      .tags-grid-table { border-spacing: 4px; }
+      .tag-chip { min-height: 42px; font-size: .72rem; padding: 4px 2px; }
+      .tag-detail-grid { grid-template-columns: 1fr; }
+      .tags-scribble { display: none; }
+      .tag-detail-card { min-height: auto; }
+    }
+
+
+
+    /* Terceiro quadro: fundamentos de CSS com tabela e mapa mental. */
+    .css-board-screen .title-wrap { margin-bottom: 14px; }
+    .css-workspace {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .css-central {
+      width: min(820px, 60vw);
+      min-height: 560px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(.14deg);
+    }
+    .css-table th:first-child, .css-table td:first-child { width: 31%; }
+    .css-table .css-topic { color: var(--ink-purple); font-weight: 900; }
+    .css-table tbody tr:hover,
+    .css-table tbody tr:focus-visible,
+    .css-table tbody tr.is-active {
+      background: rgba(22,101,52,.09);
+      box-shadow: inset 5px 0 0 var(--ink-green);
+    }
+    .css-note { width: min(245px, 21vw); }
+    .css-history-note { top: 3%; left: 1%; color: var(--ink-blue); transform: rotate(-3deg); }
+    .dynamic-pages-note { top: 4%; right: 1%; color: var(--ink-red); transform: rotate(2.6deg); }
+    .sass-tailwind-note { bottom: 2%; left: 2%; color: var(--ink-purple); transform: rotate(2deg); }
+    .uiux-note { bottom: 2%; right: 2%; color: var(--ink-orange); transform: rotate(-2.1deg); }
+    .css-note p { color: var(--ink-black); }
+    .css-history-line { color: var(--ink-blue); }
+    .dynamic-pages-line { color: var(--ink-red); }
+    .sass-tailwind-line { color: var(--ink-purple); }
+    .uiux-line { color: var(--ink-orange); }
+    .css-workspace.context-mode .css-note { opacity: .18; filter: blur(.2px); }
+    .css-workspace.context-mode .css-note.is-selected {
+      opacity: 1;
+      filter: none;
+      transform: rotate(0deg) scale(1.08);
+      z-index: 7;
+    }
+    .css-workspace.context-mode .css-connector { opacity: .12; }
+    .css-workspace.context-mode .css-connector.is-active { opacity: .95; stroke-width: 7; }
+    .css-detail-card, .css-concept-card { --concept-color: var(--ink-green); }
+    .css-detail-card h2, .css-concept-card h2 { color: var(--concept-color); }
+    .css-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 13px 0;
+    }
+    .css-detail-box {
+      border: 3px solid var(--concept-color);
+      border-radius: 14px 10px 17px 12px;
+      background: rgba(255,255,255,.6);
+      padding: 11px 13px;
+      min-width: 0;
+    }
+    .css-detail-box h3 { margin: 0 0 7px; color: var(--concept-color); font-size: 1rem; }
+    .css-syntax {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      overflow-x: auto;
+      color: var(--ink-black);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.78rem, .96vw, .92rem);
+      line-height: 1.48;
+    }
+    .css-preview {
+      min-height: 126px;
+      display: grid;
+      align-content: center;
+      gap: 7px;
+      border: 2px dashed rgba(8,79,159,.46);
+      border-radius: 10px;
+      background: rgba(239,246,255,.52);
+      padding: 11px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .css-preview * { box-sizing: border-box; }
+    .css-effect-strip {
+      margin: 12px 0;
+      border-left: 6px solid var(--ink-orange);
+      background: rgba(255,247,237,.72);
+      border-radius: 8px 13px 11px 8px;
+      padding: 9px 12px;
+      color: var(--ink-black);
+    }
+    .css-effect-strip strong { color: var(--ink-orange); }
+    .css-concept-card .concept-grid { grid-template-columns: 1fr 1fr; }
+    .css-concept-card .history-note {
+      margin-top: 2px;
+      padding: 9px 12px;
+      border: 2px dashed var(--concept-color, var(--ink-purple));
+      border-radius: 11px 15px 9px 14px;
+      background: rgba(255,255,255,.52);
+      line-height: 1.32;
+    }
+
+    @media (max-width: 1100px) {
+      .css-workspace {
+        min-height: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        align-items: start;
+      }
+      .css-central { width: 100%; min-height: auto; grid-column: 1 / -1; grid-row: 2; transform: none; }
+      .css-note { position: relative; inset: auto; width: auto; transform: rotate(0deg) !important; }
+      .css-history-note, .dynamic-pages-note { grid-row: 1; }
+      .sass-tailwind-note, .uiux-note { grid-row: 3; }
+      .css-workspace .connections { display: none; }
+      .css-workspace.context-mode .css-note { opacity: .35; }
+      .css-workspace.context-mode .css-note.is-selected { opacity: 1; transform: none; }
+    }
+    @media (max-width: 620px) {
+      .css-workspace { grid-template-columns: 1fr; gap: 11px; padding-bottom: 20px; }
+      .css-central { grid-column: 1; grid-row: 3; }
+      .css-history-note { grid-row: 1; }
+      .dynamic-pages-note { grid-row: 2; }
+      .sass-tailwind-note { grid-row: 4; }
+      .uiux-note { grid-row: 5; }
+      .css-detail-grid, .css-concept-card .concept-grid { grid-template-columns: 1fr; }
+      .css-table th:first-child, .css-table td:first-child { width: 38%; }
+      .css-table { font-size: .82rem; }
+      .css-table td, .css-table th { padding-left: 7px; padding-right: 7px; }
+    }
+
+
+
+
+    /* Quarto quadro: CSS Parte 2 — pseudo-seletores, responsividade e movimento. */
+    .css2-board-screen .title-wrap { margin-bottom: 14px; }
+    .css2-workspace {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .css2-central {
+      width: min(1040px, 86vw);
+      z-index: 5;
+      position: relative;
+      transform: rotate(-.08deg);
+    }
+    .css2-main-table th:first-child, .css2-main-table td:first-child { width: 42%; }
+    .css2-main-table .css2-topic { color: var(--ink-purple); font-weight: 900; }
+    .css2-main-table tbody tr:hover,
+    .css2-main-table tbody tr:focus-visible,
+    .css2-main-table tbody tr.is-active {
+      background: rgba(107,33,168,.09);
+      box-shadow: inset 5px 0 0 var(--ink-purple);
+    }
+    .css2-main-card {
+      border: 3px solid var(--ink-blue);
+      border-radius: 15px 11px 17px 12px;
+      background: rgba(255,255,255,.57);
+      padding: 12px;
+      box-shadow: 0 9px 24px rgba(15,23,42,.07);
+    }
+    .css2-bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .css2-boardlet {
+      min-height: 210px;
+      border: 3px solid var(--boardlet-color, var(--ink-green));
+      border-radius: 12px 18px 11px 16px;
+      background:
+        repeating-linear-gradient(1deg, transparent 0 31px, rgba(17,24,39,.018) 32px 33px),
+        rgba(255,255,255,.58);
+      padding: 14px 16px;
+      box-shadow: 0 8px 20px rgba(15,23,42,.06);
+      transform: rotate(var(--boardlet-rotate, -.2deg));
+    }
+    .css2-boardlet:nth-child(2) { --boardlet-color: var(--ink-orange); --boardlet-rotate: .18deg; }
+    .css2-boardlet h3 {
+      margin: 0 0 8px;
+      color: var(--boardlet-color, var(--ink-green));
+      font-size: clamp(1.08rem,1.55vw,1.45rem);
+    }
+    .css2-boardlet p { margin: 6px 0; line-height: 1.35; }
+    .css2-code {
+      margin: 8px 0;
+      max-height: 180px;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.76rem,.95vw,.9rem);
+      line-height: 1.45;
+      color: var(--ink-black);
+      background: rgba(248,250,252,.8);
+      border: 2px dashed rgba(180,83,9,.5);
+      border-radius: 10px;
+      padding: 9px 10px;
+    }
+    .css2-live-example {
+      margin-top: 9px;
+      min-height: 76px;
+      border: 2px dashed rgba(8,79,159,.48);
+      border-radius: 11px;
+      background: rgba(239,246,255,.5);
+      padding: 10px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .css2-open-reference {
+      display: none;
+      margin-top: 9px;
+      border: 2px solid var(--ink-purple);
+      background: rgba(255,255,255,.82);
+      color: var(--ink-purple);
+      border-radius: 12px 8px 14px 9px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .css2-open-reference.is-visible { display: inline-block; }
+    .css2-open-reference:hover, .css2-open-reference:focus-visible {
+      outline: 3px dashed var(--focus);
+      outline-offset: 2px;
+      background: #fff;
+    }
+    .css2-responsive-demo {
+      container-type: inline-size;
+      resize: horizontal;
+      overflow: auto;
+      width: min(100%, 440px);
+      min-width: 220px;
+      border: 2px solid var(--ink-blue);
+      border-radius: 10px;
+      padding: 8px;
+      background: white;
+    }
+    .css2-responsive-card {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 9px;
+      align-items: center;
+      padding: 9px;
+      border-radius: 8px;
+      background: #eff6ff;
+    }
+    .css2-responsive-card::before {
+      content: "desktop";
+      display: grid;
+      place-items: center;
+      min-height: 52px;
+      border-radius: 8px;
+      background: #dbeafe;
+      color: #084f9f;
+      font-weight: 800;
+    }
+    @container (max-width: 330px) {
+      .css2-responsive-card { grid-template-columns: 1fr; }
+      .css2-responsive-card::before { content: "mobile"; min-height: 34px; }
+    }
+    .css2-motion-demo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .css2-motion-box {
+      width: 72px;
+      aspect-ratio: 1;
+      border-radius: 14px 9px 16px 10px;
+      display: grid;
+      place-items: center;
+      background: #dbeafe;
+      color: #084f9f;
+      border: 3px solid #084f9f;
+      transition: transform .45s ease, background .45s ease, border-radius .45s ease;
+      font-weight: 900;
+    }
+    .css2-motion-box.is-running {
+      transform: translateX(46px) rotate(10deg) scale(1.08);
+      background: #ffedd5;
+      border-radius: 50%;
+      animation: css2Pulse .8s ease-in-out 2 alternate;
+    }
+    @keyframes css2Pulse { from { filter: brightness(1); } to { filter: brightness(1.13); } }
+    .css2-demo-btn {
+      border: 2px solid var(--ink-blue);
+      background: rgba(255,255,255,.82);
+      color: var(--ink-blue);
+      border-radius: 10px 7px 12px 8px;
+      padding: 6px 9px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+    .css2-demo-btn:hover, .css2-demo-btn:focus-visible { outline: 3px dashed var(--focus); outline-offset: 2px; }
+
+    .css2-reference-view { width: min(1120px, 91vw); }
+    .css2-reference-card {
+      --ref-color: var(--ink-purple);
+      border: 3px solid var(--ref-color);
+      border-radius: 18px 12px 20px 14px;
+      background: rgba(255,255,255,.7);
+      padding: clamp(12px,2vw,20px);
+      box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    }
+    .css2-reference-card h2 { margin: 0 0 5px; color: var(--ref-color); font-size: clamp(1.55rem,2.5vw,2.4rem); }
+    .css2-reference-card > p { margin: 5px 0 12px; }
+    .css2-reference-tools {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 8px 0 12px;
+    }
+    .css2-reference-search {
+      flex: 1 1 260px;
+      min-width: 0;
+      border: 2px solid var(--ref-color);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,.84);
+      color: var(--ink-black);
+      font-family: system-ui, sans-serif;
+    }
+    .css2-reference-search:focus-visible { outline: 3px dashed var(--focus); outline-offset: 2px; }
+    .css2-reference-count { color: var(--ink-green); font-weight: 900; }
+    .css2-reference-table-wrap {
+      max-height: 500px;
+      overflow: auto;
+      border: 2px solid rgba(107,33,168,.33);
+      border-radius: 12px;
+      background: rgba(255,255,255,.58);
+    }
+    .css2-reference-table {
+      border: 0;
+      border-radius: 0;
+      table-layout: auto;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(.76rem,.92vw,.91rem);
+    }
+    .css2-reference-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: var(--ref-color);
+    }
+    .css2-reference-table th:nth-child(1), .css2-reference-table td:nth-child(1) { width: 17%; }
+    .css2-reference-table th:nth-child(2), .css2-reference-table td:nth-child(2) { width: 29%; }
+    .css2-reference-table th:nth-child(3), .css2-reference-table td:nth-child(3) { width: 25%; }
+    .css2-reference-table th:nth-child(4), .css2-reference-table td:nth-child(4) { width: 29%; }
+    .css2-reference-table td { padding: 8px 9px; vertical-align: top; }
+    .css2-reference-table tbody tr { cursor: default; }
+    .css2-reference-table tbody tr:hover { transform: none; box-shadow: inset 4px 0 0 var(--ink-orange); }
+    .css2-selector {
+      color: var(--ink-purple);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .css2-mini-code {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: .83em;
+      color: var(--ink-black);
+    }
+    .css2-example-pill {
+      display: inline-block;
+      border-left: 4px solid var(--ink-green);
+      padding-left: 7px;
+      color: #14532d;
+    }
+    .css2-scribble {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      opacity: .48;
+      font-family: var(--hand);
+      font-size: clamp(.72rem,.9vw,.9rem);
+      line-height: 1.18;
+      white-space: pre-wrap;
+      max-width: 210px;
+    }
+    .css2-scribble.a { left: 1%; top: 7%; color: var(--ink-red); transform: rotate(-4deg); }
+    .css2-scribble.b { right: 1%; top: 9%; color: var(--ink-blue); transform: rotate(3deg); }
+    .css2-scribble.c { left: 2%; bottom: 3%; color: var(--ink-green); transform: rotate(2deg); }
+    .css2-scribble.d { right: 2%; bottom: 3%; color: var(--ink-orange); transform: rotate(-2deg); }
+
+    @media (max-width: 960px) {
+      .css2-central { width: 100%; transform: none; }
+      .css2-bottom-grid { grid-template-columns: 1fr; }
+      .css2-scribble { display: none; }
+      .css2-reference-view { width: 100%; }
+    }
+    @media (max-width: 620px) {
+      .css2-workspace { min-height: auto; padding-bottom: 20px; }
+      .css2-main-table th:first-child, .css2-main-table td:first-child { width: 47%; }
+      .css2-main-table { font-size: .82rem; }
+      .css2-main-table td, .css2-main-table th { padding-left: 7px; padding-right: 7px; }
+      .css2-reference-table-wrap { max-height: 57vh; }
+      .css2-reference-table th:nth-child(1), .css2-reference-table td:nth-child(1) { min-width: 120px; }
+      .css2-reference-table th:nth-child(2), .css2-reference-table td:nth-child(2) { min-width: 220px; }
+      .css2-reference-table th:nth-child(3), .css2-reference-table td:nth-child(3) { min-width: 210px; }
+      .css2-reference-table th:nth-child(4), .css2-reference-table td:nth-child(4) { min-width: 220px; }
+    }
+
+
+    /* Oitavo quadro: funções assíncronas. */
+
+
+    /* Quinto quadro: principais propriedades CSS — grade de propriedades + conceitos de seleção. */
+    .cssprops-board-screen .title-wrap { margin-bottom: 14px; }
+    .cssprops-workspace {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .cssprops-central {
+      width: min(980px, 76vw);
+      min-height: 575px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(.06deg);
+    }
+    .cssprops-grid-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: separate;
+      border-spacing: 7px;
+      background: transparent;
+      border: 0;
+    }
+    .cssprops-grid-table td {
+      width: 25%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+    .cssprops-grid-table tbody tr:hover,
+    .cssprops-grid-table tbody tr:focus-within,
+    .cssprops-grid-table tbody tr.is-active {
+      transform: none;
+      background: transparent;
+      box-shadow: none;
+    }
+    .css-prop-chip {
+      width: 100%;
+      min-height: 46px;
+      display: grid;
+      place-items: center;
+      border: 2px solid currentColor;
+      border-radius: 13px 9px 15px 11px;
+      background: rgba(255,255,255,.68);
+      color: var(--ink-blue);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.73rem, 1vw, .94rem);
+      font-weight: 900;
+      cursor: pointer;
+      padding: 5px 6px;
+      overflow-wrap: anywhere;
+      box-shadow: 0 3px 0 color-mix(in srgb, currentColor 12%, transparent);
+      transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+    }
+    .cssprops-grid-table tr:nth-child(4n+1) .css-prop-chip { color: var(--ink-blue); }
+    .cssprops-grid-table tr:nth-child(4n+2) .css-prop-chip { color: var(--ink-red); }
+    .cssprops-grid-table tr:nth-child(4n+3) .css-prop-chip { color: var(--ink-green); }
+    .cssprops-grid-table tr:nth-child(4n+4) .css-prop-chip { color: var(--ink-purple); }
+    .css-prop-chip:hover,
+    .css-prop-chip:focus-visible,
+    .css-prop-chip.is-active {
+      background: #fff;
+      transform: rotate(-.45deg) scale(1.045);
+      box-shadow: 0 7px 16px rgba(15,23,42,.12);
+      outline: 3px dashed var(--focus);
+      outline-offset: 2px;
+      z-index: 2;
+      position: relative;
+    }
+    .css-prop-chip.is-active { outline-style: solid; }
+
+    .cssp-note {
+      width: clamp(145px, 15vw, 215px);
+      color: var(--note-color, var(--ink-blue));
+      background: rgba(255,255,255,.18);
+      border-radius: 15px 11px 16px 9px;
+    }
+    .cssp-note h2 {
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      color: var(--note-color, var(--ink-blue));
+      font-size: clamp(1.18rem,1.65vw,1.65rem);
+    }
+    .cssp-note p { color: var(--ink-black); }
+    .cssp-note.name-note { --note-color: var(--ink-red); top: 8%; left: 0; transform: rotate(-3deg); }
+    .cssp-note.class-note { --note-color: var(--ink-purple); top: 9%; right: 0; transform: rotate(2.6deg); }
+    .cssp-note.id-note { --note-color: var(--ink-green); bottom: 7%; left: 1%; transform: rotate(2deg); }
+    .cssp-note.name-note::after { right: -49px; bottom: 5px; transform: rotate(11deg); }
+    .cssp-note.class-note::after { left: -49px; bottom: 5px; transform: rotate(-11deg); }
+    .cssp-note.id-note::after { right: -53px; top: 9px; transform: rotate(-15deg); }
+    .cssprops-workspace.context-mode .cssp-note { opacity: .18; }
+    .cssprops-workspace.context-mode .cssp-note.is-selected { opacity: 1; transform: rotate(0) scale(1.06); z-index: 7; }
+
+    .cssprops-scribble {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .38;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.7rem,.86vw,.84rem);
+      line-height: 1.25;
+      white-space: pre-wrap;
+      max-width: 215px;
+    }
+    .cssprops-scribble.a { right: 2%; bottom: 5%; color: var(--ink-orange); transform: rotate(-2deg); }
+    .cssprops-scribble.b { left: 2%; top: 44%; color: var(--ink-blue); transform: rotate(3deg); }
+
+    .css-prop-detail-card { min-height: 535px; --concept-color: var(--ink-blue); }
+    .css-prop-detail-card h2 { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
+    .css-prop-detail-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 13px;
+      margin: 12px 0;
+    }
+    .css-prop-code-box,
+    .css-prop-demo-box {
+      border: 3px solid var(--concept-color);
+      border-radius: 14px 10px 18px 12px;
+      background: rgba(255,255,255,.58);
+      padding: 12px;
+      min-width: 0;
+    }
+    .css-prop-code-box h3,
+    .css-prop-demo-box h3 { margin: 0 0 7px; color: var(--concept-color); font-size: 1.05rem; }
+    .css-prop-code {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.77rem,.95vw,.91rem);
+      line-height: 1.5;
+    }
+    .css-prop-demo-stage {
+      min-height: 168px;
+      display: grid;
+      place-items: center;
+      overflow: auto;
+      border: 2px dashed rgba(22,101,52,.45);
+      border-radius: 11px;
+      padding: 15px;
+      background: rgba(240,253,244,.42);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .css-prop-demo-target {
+      min-width: 150px;
+      min-height: 70px;
+      padding: 12px;
+      border: 2px solid #084f9f;
+      border-radius: 9px;
+      background: #dbeafe;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .css-prop-demo-target > span {
+      display: inline-grid;
+      place-items: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 4px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid #64748b;
+      border-radius: 6px;
+    }
+    .css-prop-demo-target.transition-example:hover { transform: scale(1.12) rotate(2deg); background: #ffedd5 !important; }
+    @keyframes cssPropsFloat {
+      0%,100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-13px) rotate(2deg); }
+    }
+
+    .cssprops-concept-card { min-height: 520px; }
+    .selector-declaration-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .selector-declaration-box {
+      border: 3px solid currentColor;
+      border-radius: 13px 9px 17px 11px;
+      padding: 12px;
+      background: rgba(255,255,255,.56);
+      min-width: 0;
+    }
+    .selector-declaration-box:nth-child(1) { color: var(--ink-red); transform: rotate(-.35deg); }
+    .selector-declaration-box:nth-child(2) { color: var(--ink-blue); transform: rotate(.35deg); }
+    .selector-declaration-box:nth-child(3) { color: var(--ink-green); transform: rotate(-.2deg); }
+    .selector-declaration-box h3 { margin: 0 0 7px; }
+    .selector-declaration-box pre {
+      margin: 0;
+      color: var(--ink-black);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.75rem,.9vw,.88rem);
+      line-height: 1.45;
+    }
+    .selector-note {
+      margin: 9px 0 0;
+      border-left: 6px solid var(--ink-orange);
+      background: rgba(255,247,237,.68);
+      padding: 9px 11px;
+      border-radius: 7px 11px 11px 7px;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 1080px) {
+      .cssprops-central { width: min(94vw, 920px); }
+      .cssp-note { width: 165px; opacity: .82; }
+      .cssp-note.name-note { top: -1%; left: 0; }
+      .cssp-note.class-note { top: -1%; right: 0; }
+      .cssp-note.id-note { bottom: -2%; left: 0; }
+    }
+    @media (max-width: 760px) {
+      .cssprops-workspace { min-height: auto; display: block; padding-bottom: 18px; }
+      .cssprops-central { width: 100%; min-height: auto; transform: none; }
+      .cssprops-grid-table { border-spacing: 4px; }
+      .css-prop-chip { min-height: 42px; font-size: .69rem; padding: 4px 2px; }
+      .cssp-note {
+        position: relative;
+        inset: auto !important;
+        width: 100%;
+        margin: 7px 0;
+        transform: none !important;
+        border: 2px dashed var(--note-color);
+      }
+      .cssp-note::after { display: none; }
+      .cssprops-scribble { display: none; }
+      .css-prop-detail-grid,
+      .selector-declaration-grid { grid-template-columns: 1fr; }
+      .css-prop-detail-card,
+      .cssprops-concept-card { min-height: auto; }
+    }
+
+
+
+    /* Sexto quadro: atualidades em HTML + CSS, no mesmo modelo do primeiro quadro. */
+    .current-board-screen .title-wrap { margin-bottom: 14px; }
+    .current-workspace {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .current-central {
+      width: min(840px, 60vw);
+      min-height: 560px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(-.08deg);
+    }
+    .current-table th:first-child, .current-table td:first-child { width: 19%; }
+    .current-table th:nth-child(2), .current-table td:nth-child(2) { width: 31%; }
+    .current-feature {
+      color: var(--ink-red);
+      font-weight: 900;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    }
+    .current-area {
+      display: inline-block;
+      padding: 2px 7px;
+      border: 2px solid currentColor;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 900;
+    }
+    .current-area.html { color: var(--ink-orange); }
+    .current-area.css { color: var(--ink-blue); }
+    .current-note {
+      width: min(230px, 20vw);
+      color: var(--note-color, var(--ink-blue));
+      background: rgba(255,255,255,.2);
+    }
+    .current-note h2 { color: var(--note-color, var(--ink-blue)); }
+    .current-note p { color: var(--ink-black); }
+    .current-note.a11y-semantic { --note-color: var(--ink-blue); top: 1%; left: 1%; transform: rotate(-3deg); }
+    .current-note.a11y-aria { --note-color: var(--ink-red); top: 2%; right: 1%; transform: rotate(2.5deg); }
+    .current-note.a11y-focus { --note-color: var(--ink-green); top: 40%; left: 0; transform: rotate(1.4deg); }
+    .current-note.ux-hierarchy { --note-color: var(--ink-purple); top: 39%; right: 0; transform: rotate(-2deg); }
+    .current-note.ux-feedback { --note-color: var(--ink-orange); bottom: 0; left: 4%; transform: rotate(-2deg); }
+    .current-note.ux-responsive { --note-color: var(--ink-blue); bottom: 0; right: 4%; transform: rotate(2deg); }
+    .current-workspace.context-mode .current-note { opacity: .18; filter: blur(.2px); }
+    .current-workspace.context-mode .current-note.is-selected { opacity: 1; filter: none; transform: rotate(0deg) scale(1.07); z-index: 7; }
+
+    .current-detail-card,
+    .current-concept-card { min-height: 525px; --concept-color: var(--ink-blue); }
+    .current-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 13px 0;
+    }
+    .current-box {
+      border: 3px solid var(--concept-color);
+      border-radius: 14px 10px 17px 12px;
+      background: rgba(255,255,255,.58);
+      padding: 11px 13px;
+      min-width: 0;
+    }
+    .current-box h3 { margin: 0 0 7px; color: var(--concept-color); font-size: 1.02rem; }
+    .current-code {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      overflow-x: auto;
+      color: var(--ink-black);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.76rem,.94vw,.9rem);
+      line-height: 1.48;
+    }
+    .current-demo {
+      min-height: 170px;
+      display: grid;
+      align-content: center;
+      gap: 9px;
+      border: 2px dashed rgba(22,101,52,.45);
+      border-radius: 10px;
+      background: rgba(240,253,244,.46);
+      padding: 12px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .current-demo button,
+    .current-demo input {
+      font: inherit;
+      padding: .6rem .8rem;
+      border: 2px solid #084f9f;
+      border-radius: 9px;
+      background: #fff;
+      color: #111827;
+    }
+    .current-demo button { cursor: pointer; font-weight: 800; }
+    .current-demo dialog { max-width: 360px; border: 3px solid #6b21a8; border-radius: 14px; }
+    .current-demo [popover] { border: 3px solid #b42318; border-radius: 12px; padding: 12px; background: #fff; }
+    .current-status-note {
+      margin-top: 10px;
+      padding: 9px 12px;
+      border-left: 6px solid var(--ink-orange);
+      border-radius: 8px 12px 12px 8px;
+      background: rgba(255,247,237,.7);
+      line-height: 1.35;
+    }
+    .current-concept-example {
+      margin-top: 12px;
+      border: 3px dashed var(--concept-color);
+      border-radius: 13px;
+      padding: 11px 12px;
+      background: rgba(255,255,255,.54);
+    }
+    .current-concept-example h3 { margin: 0 0 7px; color: var(--concept-color); }
+    .current-concept-example pre {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.76rem,.92vw,.9rem);
+      line-height: 1.45;
+    }
+    .current-scribble {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .34;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.68rem,.85vw,.82rem);
+      white-space: pre-wrap;
+    }
+    .current-scribble.a { left: 1%; bottom: 26%; color: var(--ink-red); transform: rotate(-3deg); }
+    .current-scribble.b { right: 1%; bottom: 25%; color: var(--ink-green); transform: rotate(3deg); }
+
+    @media (max-width: 1080px) {
+      .current-central { width: min(94vw, 860px); }
+      .current-note { width: 170px; opacity: .86; }
+    }
+    @media (max-width: 760px) {
+      .current-workspace { min-height: auto; display: grid; grid-template-columns: 1fr; gap: 9px; }
+      .current-central { width: 100%; min-height: auto; transform: none; grid-row: 4; }
+      .current-note {
+        position: relative;
+        inset: auto !important;
+        width: 100%;
+        min-height: auto;
+        transform: none !important;
+        border: 2px dashed var(--note-color);
+      }
+      .current-note::after { display: none; }
+      .current-note.a11y-semantic { grid-row: 1; }
+      .current-note.a11y-aria { grid-row: 2; }
+      .current-note.a11y-focus { grid-row: 3; }
+      .current-note.ux-hierarchy { grid-row: 5; }
+      .current-note.ux-feedback { grid-row: 6; }
+      .current-note.ux-responsive { grid-row: 7; }
+      .current-detail-grid { grid-template-columns: 1fr; }
+      .current-scribble { display: none; }
+      .current-table { font-size: .78rem; }
+      .current-table th, .current-table td { padding-left: 6px; padding-right: 6px; }
+    }
+
+    .async-board-screen .title-wrap { margin-bottom: 14px; }
+    .async-workspace {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .async-central {
+      width: min(900px, 64vw);
+      min-height: 560px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(-.16deg);
+    }
+    .async-table th:nth-child(1), .async-table td:nth-child(1) { width: 25%; }
+    .async-table th:nth-child(2), .async-table td:nth-child(2) { width: 43%; }
+    .async-table th:nth-child(3), .async-table td:nth-child(3) { width: 32%; }
+    .async-table .async-name { color: var(--ink-purple); font-weight: 900; }
+    .async-table tbody tr:hover,
+    .async-table tbody tr:focus-visible,
+    .async-table tbody tr.is-active {
+      background: rgba(107,33,168,.10);
+      box-shadow: inset 5px 0 0 var(--ink-purple);
+    }
+
+    .async-detail {
+      margin-top: 11px;
+      padding: 10px 13px;
+      border: 2px dashed var(--ink-orange);
+      border-radius: 14px 10px 16px 11px;
+      background: rgba(255,251,235,.6);
+      color: var(--ink-black);
+      min-height: 58px;
+    }
+    .async-detail strong { color: var(--ink-purple); }
+    .async-lab {
+      margin-top: 11px;
+      border: 3px solid var(--ink-green);
+      border-radius: 15px 20px 13px 18px;
+      background: rgba(240,253,244,.62);
+      padding: 12px 14px 14px;
+    }
+    .async-lab h3 { margin: 0 0 5px; color: var(--ink-green); font-size: clamp(1.05rem,1.35vw,1.28rem); }
+    .async-lab p { margin: 5px 0; line-height: 1.28; }
+    .async-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      min-height: 52px;
+      margin: 9px 0;
+    }
+    .flow-step {
+      border: 2px solid var(--ink-blue);
+      border-radius: 12px 8px 13px 9px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,.72);
+      color: var(--ink-blue);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .flow-step.is-running {
+      transform: translateY(-2px) scale(1.04) rotate(-.6deg);
+      background: #fff;
+      box-shadow: 0 6px 12px rgba(8,79,159,.12);
+    }
+    .flow-arrow { color: var(--ink-red); font-weight: 900; }
+    .async-run {
+      border: 2px solid var(--ink-green);
+      background: rgba(255,255,255,.8);
+      color: var(--ink-green);
+      border-radius: 12px 8px 14px 10px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+    .async-run:hover, .async-run:focus-visible { outline: 3px dashed var(--focus); outline-offset: 2px; background: #fff; }
+    .async-log {
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--ink-red);
+      font-size: .93rem;
+    }
+
+    .async-scribble {
+      position: absolute;
+      z-index: 2;
+      max-width: 235px;
+      margin: 0;
+      padding: 6px 8px;
+      white-space: pre-wrap;
+      pointer-events: none;
+      font-family: var(--hand);
+      font-size: clamp(.77rem,.92vw,.94rem);
+      line-height: 1.22;
+      color: var(--scribble-color, var(--ink-black));
+      border-left: 3px solid currentColor;
+      border-radius: 6px;
+      opacity: .69;
+      background: rgba(255,255,255,.22);
+      transform: rotate(var(--scribble-rotate,-2deg));
+      transition: opacity .25s ease, transform .25s ease, filter .25s ease;
+    }
+    .async-scribble.s1 { top: 4%; left: 1%; --scribble-color: var(--ink-blue); --scribble-rotate: -3deg; }
+    .async-scribble.s2 { top: 8%; right: 1%; --scribble-color: var(--ink-red); --scribble-rotate: 2deg; }
+    .async-scribble.s3 { top: 43%; left: 0; --scribble-color: var(--ink-green); --scribble-rotate: 2.2deg; }
+    .async-scribble.s4 { top: 43%; right: 0; --scribble-color: var(--ink-orange); --scribble-rotate: -2deg; }
+    .async-scribble.s5 { bottom: 1%; left: 50%; translate: -50% 0; --scribble-color: var(--ink-purple); --scribble-rotate: .8deg; }
+    .async-workspace.flash-scribbles .async-scribble {
+      animation: scribbleFlash .52s ease both;
+    }
+    @keyframes scribbleFlash {
+      0%,100% { opacity: .69; filter: none; }
+      48% { opacity: .95; filter: drop-shadow(0 3px 2px rgba(15,23,42,.12)); transform: rotate(var(--scribble-rotate,-2deg)) scale(1.035); }
+    }
+
+    @media (max-width: 1120px) {
+      .async-workspace { min-height: auto; display: grid; grid-template-columns: 1fr; gap: 12px; }
+      .async-central { width: 100%; min-height: auto; grid-row: 2; transform: none; }
+      .async-scribble {
+        position: relative;
+        inset: auto !important;
+        translate: none !important;
+        max-width: none;
+        min-height: 65px;
+        border: 2px dashed currentColor;
+        opacity: .78;
+      }
+      .async-scribble.s1, .async-scribble.s2, .async-scribble.s3, .async-scribble.s4, .async-scribble.s5 { transform: none; }
+      .async-scribble.s1 { grid-row: 1; }
+      .async-scribble.s2 { grid-row: 3; }
+      .async-scribble.s3 { grid-row: 4; }
+      .async-scribble.s4 { grid-row: 5; }
+      .async-scribble.s5 { grid-row: 6; }
+    }
+
+    @media (max-width: 680px) {
+      .board-switch { width: 100%; max-width: 390px; }
+      .async-table th:nth-child(1), .async-table td:nth-child(1) { width: 31%; }
+      .async-table th:nth-child(2), .async-table td:nth-child(2) { width: 42%; }
+      .async-table th:nth-child(3), .async-table td:nth-child(3) { width: 27%; }
+      .async-table { font-size: .78rem; }
+      .async-flow { align-items: stretch; }
+      .flow-step, .async-run { width: 100%; }
+      .flow-arrow { width: 100%; text-align: center; transform: rotate(90deg); }
+      .async-log { display: block; margin: 6px 0 0; }
+    }
+
+    @media (max-width: 1120px) {
+      .board { overflow: visible; }
+      .connections { display: none; }
+      .workspace {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        align-items: start;
+      }
+      .central-panel { width: 100%; min-height: auto; grid-column: 1 / -1; grid-row: 2; transform: none; }
+      .note {
+        position: relative;
+        inset: auto !important;
+        width: auto;
+        min-height: 118px;
+        padding: 10px 12px;
+        border: 2px dashed currentColor;
+        border-radius: 15px 11px 16px 10px;
+        background: rgba(255,255,255,.48);
+      }
+      .note::after { display: none; }
+      .events, .javascript { grid-row: 1; }
+      .ecmascript, .react { grid-row: 3; }
+      .jquery, .ajax { grid-row: 4; }
+      .html-workspace { min-height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+      .html-central { width: 100%; min-height: auto; grid-column: 1 / -1; grid-row: 2; transform: none; }
+      .html-note { width: auto; }
+      .web-history, .browser-wars { grid-row: 1; }
+      .ai-html, .html5-concept { grid-row: 3; }
+      .css-concept, .js-concept { grid-row: 4; }
+      .html-workspace.context-mode .html-note { opacity: .35; }
+      .html-workspace.context-mode .html-note.is-selected { transform: none; opacity: 1; }
+      .html-example { grid-template-columns: 1fr; }
+      .workspace.context-mode .note { opacity: .35; }
+      .workspace.context-mode .note.is-selected { transform: none; opacity: 1; }
+      .board-content { padding-bottom: 110px; }
+      .doodle { display: none; }
+      .ambient-code-layer { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 7px; }
+      .board-shell { border-radius: 12px; padding: 7px; }
+      .board { border-radius: 7px; }
+      .board-content { padding: 23px 10px 95px; }
+      .title-wrap { margin-bottom: 17px; }
+      .workspace { grid-template-columns: 1fr; gap: 11px; }
+      .events, .javascript, .ecmascript, .react, .jquery, .ajax,
+      .web-history, .browser-wars, .ai-html, .html5-concept, .css-concept, .js-concept { grid-row: auto; }
+      .events { grid-row: 1; }
+      .javascript { grid-row: 2; }
+      .central-panel { grid-column: 1; grid-row: 3; }
+      .ecmascript { grid-row: 4; }
+      .react { grid-row: 5; }
+      .jquery { grid-row: 6; }
+      .ajax { grid-row: 7; }
+      .html-workspace { grid-template-columns: 1fr; gap: 11px; }
+      .web-history { grid-row: 1; }
+      .browser-wars { grid-row: 2; }
+      .html-central { grid-column: 1; grid-row: 3; }
+      .ai-html { grid-row: 4; }
+      .html5-concept { grid-row: 5; }
+      .css-concept { grid-row: 6; }
+      .js-concept { grid-row: 7; }
+      .html-note { min-height: auto; transform: rotate(0deg) !important; }
+      .html-example { grid-template-columns: 1fr; }
+      .note { min-height: auto; transform: rotate(0deg) !important; }
+      .table-card { padding: 6px; border-radius: 12px; }
+      table { border-width: 2px; font-size: .86rem; }
+      thead th { padding: 8px 6px; }
+      td { padding: 7px 6px; }
+      th:first-child, td:first-child { width: 35%; }
+      .event-name { white-space: normal; }
+      tbody tr:hover, tbody tr:focus-visible, tbody tr.is-active { transform: scale(1.003); }
+      .demo-lab { padding: 11px 9px 12px; }
+      .syntax-code { font-size: .76rem; padding-inline: 9px; }
+      .demo-stage { align-items: stretch; }
+      .demo-control, .demo-target { width: 100%; }
+      .concept-card { min-height: auto; padding: 17px 12px; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .tray { width: 88%; gap: 8px; padding-inline: 8px; }
+      .marker { width: 48px; }
+      .eraser { width: 54px; }
+    }
+
+
+
+    /* Sétimo quadro: fundamentos de JavaScript. Mantém a lógica do primeiro quadro:
+       tabela principal + explicação + sintaxe/exemplo no mesmo quadro. */
+    .jsfund-board-screen .title-wrap { margin-bottom: 14px; }
+    .jsfund-workspace {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .jsfund-central {
+      width: min(900px, 67vw);
+      min-height: 565px;
+      z-index: 5;
+      position: relative;
+      transform: rotate(-.12deg);
+    }
+    .jsfund-table th:first-child, .jsfund-table td:first-child { width: 31%; }
+    .jsfund-key {
+      color: var(--ink-red);
+      font-weight: 950;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: -.02em;
+    }
+    .jsfund-table tbody tr.is-active td {
+      background: rgba(219,234,254,.72);
+      box-shadow: inset 0 0 0 2px rgba(8,79,159,.2);
+    }
+    .jsfund-detail {
+      min-height: 64px;
+      margin-top: 11px;
+      padding: 10px 13px;
+      border: 2px dashed var(--ink-green);
+      border-radius: 12px 16px 11px 14px;
+      background: rgba(240,253,244,.58);
+      line-height: 1.38;
+    }
+    .jsfund-detail strong { color: var(--ink-red); }
+    .jsfund-bottom-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+    .jsfund-boardlet {
+      min-width: 0;
+      padding: 12px 13px;
+      border: 3px solid var(--ink-blue);
+      border-radius: 16px 11px 18px 12px;
+      background: rgba(239,246,255,.56);
+      box-shadow: 0 8px 18px rgba(15,23,42,.05);
+    }
+    .jsfund-boardlet.syntax {
+      border-color: var(--ink-orange);
+      background: rgba(255,251,235,.58);
+    }
+    .jsfund-boardlet h3 {
+      margin: 0 0 7px;
+      color: var(--ink-blue);
+      font-size: 1.04rem;
+    }
+    .jsfund-boardlet.syntax h3 { color: var(--ink-orange); }
+    .jsfund-boardlet p { margin: 0; line-height: 1.42; }
+    .jsfund-code {
+      margin: 0;
+      max-height: 220px;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      color: var(--ink-black);
+      font-size: clamp(.76rem,.88vw,.9rem);
+      line-height: 1.45;
+    }
+    .jsfund-demo {
+      margin-top: 10px;
+      min-height: 86px;
+      padding: 10px;
+      border: 2px dashed rgba(180,83,9,.46);
+      border-radius: 11px 15px 10px 14px;
+      background: rgba(255,255,255,.7);
+      display: grid;
+      gap: 8px;
+      align-content: center;
+    }
+    .jsfund-demo button,
+    .jsfund-demo input {
+      border: 2px solid var(--ink-blue);
+      border-radius: 9px 12px 8px 11px;
+      background: #fff;
+      padding: 7px 9px;
+      color: var(--ink-black);
+    }
+    .jsfund-demo button {
+      width: max-content;
+      max-width: 100%;
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--ink-blue);
+    }
+    .jsfund-demo button:hover,
+    .jsfund-demo button:focus-visible { background: #eff6ff; outline: 3px dashed var(--focus); outline-offset: 2px; }
+    .jsfund-demo output {
+      display: block;
+      color: var(--ink-green);
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+    .jsfund-type-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .jsfund-type-list span {
+      border: 2px solid var(--ink-purple);
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: #faf5ff;
+      color: var(--ink-purple);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-weight: 850;
+      font-size: .8rem;
+    }
+    .jsfund-scribble {
+      position: absolute;
+      z-index: 1;
+      margin: 0;
+      max-width: 235px;
+      color: var(--scribble-color, var(--ink-green));
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.67rem,.72vw,.78rem);
+      line-height: 1.35;
+      opacity: .63;
+      white-space: pre-wrap;
+      pointer-events: none;
+      filter: saturate(.88);
+    }
+    .jsfund-scribble.a { --scribble-color: var(--ink-blue); left: 1%; top: 4%; transform: rotate(-4deg); }
+    .jsfund-scribble.b { --scribble-color: var(--ink-red); right: 1%; top: 8%; transform: rotate(3deg); }
+    .jsfund-scribble.c { --scribble-color: var(--ink-purple); left: 1%; bottom: 12%; transform: rotate(2deg); }
+    .jsfund-scribble.d { --scribble-color: var(--ink-green); right: 1%; bottom: 10%; transform: rotate(-3deg); }
+
+    @media (max-width: 1080px) {
+      .jsfund-central { width: min(94vw, 900px); }
+      .jsfund-scribble { opacity: .36; max-width: 170px; }
+    }
+    @media (max-width: 780px) {
+      .jsfund-workspace { min-height: auto; }
+      .jsfund-central { width: 100%; min-height: auto; transform: none; }
+      .jsfund-scribble { display: none; }
+      .jsfund-bottom-grid { grid-template-columns: 1fr; }
+      .jsfund-table { font-size: .84rem; }
+    }
+
+
+
+    /* Último quadro: semelhanças entre CSS e JavaScript. */
+    .compare-board-screen .title-wrap { margin-bottom: 14px; }
+    .compare-workspace {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .compare-central {
+      width: min(980px, 72vw);
+      min-height: 565px;
+      position: relative;
+      z-index: 5;
+      transform: rotate(.1deg);
+    }
+    .compare-table th:first-child,
+    .compare-table td:first-child { width: 34%; }
+    .compare-table tbody tr { cursor: pointer; }
+    .compare-table tbody tr:hover td,
+    .compare-table tbody tr:focus td {
+      background: rgba(239,246,255,.78);
+    }
+    .compare-key {
+      color: var(--ink-purple);
+      font-weight: 950;
+    }
+    .compare-css-word { color: var(--ink-blue); font-weight: 900; }
+    .compare-js-word { color: var(--ink-orange); font-weight: 900; }
+    .compare-hint {
+      margin: 11px 0 0;
+      padding: 10px 13px;
+      border: 2px dashed var(--ink-green);
+      border-radius: 14px 10px 16px 11px;
+      background: rgba(240,253,244,.58);
+      line-height: 1.4;
+    }
+    .compare-detail-view[hidden],
+    .compare-table-view[hidden] { display: none !important; }
+    .compare-detail-view {
+      animation: markerWrite .5s ease both;
+    }
+    .compare-card {
+      min-height: 540px;
+      padding: clamp(15px,2vw,24px);
+      border: 3px solid var(--ink-purple);
+      border-radius: 20px 13px 22px 15px;
+      background: rgba(255,255,255,.74);
+      box-shadow: 0 12px 24px rgba(15,23,42,.06);
+    }
+    .compare-card h2 {
+      margin: 0 0 7px;
+      color: var(--ink-purple);
+      font-size: clamp(1.45rem,2.2vw,2.1rem);
+    }
+    .compare-lead {
+      margin: 0 0 13px;
+      color: var(--ink-green);
+      line-height: 1.45;
+      font-weight: 750;
+    }
+    .compare-code-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 13px;
+      margin-top: 12px;
+    }
+    .compare-code-panel {
+      min-width: 0;
+      padding: 12px;
+      border: 3px solid var(--ink-blue);
+      border-radius: 14px 18px 12px 16px;
+      background: rgba(239,246,255,.62);
+    }
+    .compare-code-panel.js {
+      border-color: var(--ink-orange);
+      background: rgba(255,251,235,.65);
+    }
+    .compare-code-panel h3 {
+      margin: 0 0 8px;
+      color: var(--ink-blue);
+      font-size: 1.08rem;
+    }
+    .compare-code-panel.js h3 { color: var(--ink-orange); }
+    .compare-code {
+      margin: 0;
+      min-height: 150px;
+      max-height: 245px;
+      overflow: auto;
+      padding: 10px;
+      border: 2px dashed rgba(15,23,42,.22);
+      border-radius: 10px;
+      background: rgba(255,255,255,.76);
+      color: var(--ink-black);
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.75rem,.88vw,.9rem);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .compare-similarity {
+      margin-top: 14px;
+      padding: 13px 15px;
+      border: 3px dashed var(--ink-green);
+      border-radius: 12px 18px 11px 16px;
+      background: rgba(240,253,244,.7);
+      line-height: 1.46;
+    }
+    .compare-similarity h3 {
+      margin: 0 0 5px;
+      color: var(--ink-red);
+      font-size: 1.08rem;
+    }
+    .compare-similarity p { margin: 0; }
+    .compare-note {
+      margin-top: 9px;
+      color: var(--ink-purple);
+      font-weight: 800;
+    }
+    .compare-back {
+      margin-top: 13px;
+    }
+    .compare-scribble {
+      position: absolute;
+      z-index: 1;
+      margin: 0;
+      max-width: 225px;
+      color: var(--scribble-color, var(--ink-green));
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.66rem,.72vw,.78rem);
+      line-height: 1.35;
+      opacity: .58;
+      white-space: pre-wrap;
+      pointer-events: none;
+    }
+    .compare-scribble.a { --scribble-color: var(--ink-blue); left: 1%; top: 7%; transform: rotate(-4deg); }
+    .compare-scribble.b { --scribble-color: var(--ink-orange); right: 1%; top: 9%; transform: rotate(4deg); }
+    .compare-scribble.c { --scribble-color: var(--ink-purple); left: 1%; bottom: 10%; transform: rotate(2deg); }
+    .compare-scribble.d { --scribble-color: var(--ink-green); right: 1%; bottom: 12%; transform: rotate(-3deg); }
+
+    @media (max-width: 1080px) {
+      .compare-central { width: min(94vw, 980px); }
+      .compare-scribble { opacity: .32; max-width: 165px; }
+    }
+    @media (max-width: 780px) {
+      .compare-workspace { min-height: auto; }
+      .compare-central { width: 100%; min-height: auto; transform: none; }
+      .compare-scribble { display: none; }
+      .compare-code-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: .84rem; }
+      .compare-card { min-height: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .board, .table-card, .note, .event-detail, .demo-lab, .concept-card { background: Canvas; }
+      table, td, th, .note, .event-detail, .demo-lab, .concept-card, .demo-control { border-color: CanvasText; }
+      .event-name, h1, .table-title, .note, .event-detail, .concept-card h2 { color: CanvasText !important; }
+    }
+  
+
+    /* ===== Último quadro: comunicação JavaScript ↔ HTML / DOM ===== */
+    .dom-board-screen .title-wrap { margin-bottom: 14px; }
+    .dom-workspace {
+      min-height: 700px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 22px 4.5%;
+      overflow: hidden;
+    }
+    .dom-central {
+      width: min(78vw, 980px);
+      position: relative;
+      z-index: 4;
+      transform: rotate(-.15deg);
+    }
+    .dom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-size: clamp(.9rem, 1.45vw, 1.08rem);
+    }
+    .dom-table th,
+    .dom-table td {
+      border: 2px solid rgba(20, 30, 38, .74);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .dom-table th {
+      color: var(--ink-purple);
+      font-size: 1.08em;
+      background: rgba(117, 66, 175, .045);
+    }
+    .dom-table tbody tr {
+      cursor: pointer;
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+    }
+    .dom-table tbody tr:nth-child(odd) { transform: rotate(.12deg); }
+    .dom-table tbody tr:nth-child(even) { transform: rotate(-.12deg); }
+    .dom-table tbody tr:hover,
+    .dom-table tbody tr:focus,
+    .dom-table tbody tr.is-active {
+      outline: none;
+      transform: translateX(4px) rotate(0deg);
+      background: rgba(0, 95, 184, .08);
+      box-shadow: inset 5px 0 0 rgba(0, 95, 184, .66);
+    }
+    .dom-method { color: var(--ink-blue); font-weight: 900; }
+    .dom-purpose { color: var(--ink-green); font-weight: 800; }
+    .dom-detail {
+      margin: 12px 0 0;
+      min-height: 62px;
+      padding: 10px 13px;
+      border-left: 5px solid var(--ink-orange);
+      background: rgba(255,255,255,.48);
+      color: #152028;
+      line-height: 1.42;
+      font-size: 1rem;
+    }
+    .dom-example {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .dom-example-box,
+    .dom-result-box {
+      border: 2px dashed rgba(20, 30, 38, .58);
+      border-radius: 8px 12px 7px 13px;
+      background: rgba(255,255,255,.52);
+      padding: 11px 13px;
+      min-width: 0;
+    }
+    .dom-example-box h3,
+    .dom-result-box h3 {
+      margin: 0 0 7px;
+      font-size: 1rem;
+      color: var(--ink-blue);
+    }
+    .dom-example-box.js h3 { color: var(--ink-orange); }
+    .dom-code {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-size: .93rem;
+      line-height: 1.38;
+      color: #111820;
+    }
+    .dom-result-box {
+      grid-column: 1 / -1;
+      border-color: rgba(32, 122, 75, .55);
+    }
+    .dom-result-box h3 { color: var(--ink-green); }
+    .dom-preview {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: #14231b;
+    }
+    .dom-preview .demo-card {
+      padding: 8px 12px;
+      border: 2px solid #2c6fae;
+      border-radius: 8px;
+      background: rgba(220, 239, 255, .72);
+    }
+    .dom-preview .ativo {
+      background: rgba(255, 224, 112, .72);
+      border-color: #c33b2f;
+      transform: rotate(-1deg);
+    }
+    .dom-scribble {
+      position: absolute;
+      z-index: 1;
+      margin: 0;
+      max-width: 210px;
+      color: var(--scribble-color, var(--ink-blue));
+      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-size: clamp(.8rem, 1.25vw, .98rem);
+      font-weight: 800;
+      line-height: 1.28;
+      opacity: .66;
+      white-space: pre-wrap;
+      pointer-events: none;
+      text-shadow: .2px .2px 0 currentColor;
+    }
+    .dom-scribble.a { --scribble-color: var(--ink-blue); left: 1%; top: 8%; transform: rotate(-6deg); }
+    .dom-scribble.b { --scribble-color: var(--ink-red); right: 1%; top: 11%; transform: rotate(5deg); }
+    .dom-scribble.c { --scribble-color: var(--ink-green); left: 1.5%; bottom: 14%; transform: rotate(4deg); }
+    .dom-scribble.d { --scribble-color: var(--ink-purple); right: 1%; bottom: 12%; transform: rotate(-5deg); }
+    .dom-scribble.e { --scribble-color: var(--ink-orange); right: 3%; top: 46%; transform: rotate(3deg); }
+    @media (max-width: 980px) {
+      .dom-central { width: min(92vw, 900px); }
+      .dom-scribble { opacity: .28; max-width: 150px; }
+    }
+    @media (max-width: 720px) {
+      .dom-workspace { min-height: auto; padding: 12px 0; }
+      .dom-central { width: 100%; transform: none; }
+      .dom-scribble { display: none; }
+      .dom-example { grid-template-columns: 1fr; }
+      .dom-result-box { grid-column: auto; }
+      .dom-table { font-size: .86rem; }
+      .dom-table th, .dom-table td { padding: 7px 6px; }
+    }
+
+
+    /* =========================================================
+       CAPA / SUMÁRIO — ocupa um monitor inteiro sem virar slide.
+       Continua sendo o mesmo quadro branco físico e interativo.
+       ========================================================= */
+    .home-board-screen {
+      height: 100%;
+      min-height: 0;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      align-items: stretch;
+      gap: clamp(8px, 1.2vh, 14px);
+      padding: clamp(2px, .4vh, 5px) 0;
+    }
+
+    .home-board-screen[hidden] { display: none !important; }
+
+    .home-header {
+      text-align: center;
+      position: relative;
+      z-index: 4;
+      margin: 0 auto;
+      width: min(1100px, 94%);
+      transform: rotate(-.18deg);
+    }
+
+    .home-header h1 {
+      margin: 0;
+      color: var(--ink-blue);
+      font-size: clamp(2rem, 4.8vh, 4.15rem);
+      line-height: .98;
+      letter-spacing: .01em;
+    }
+
+    .home-professor {
+      margin: clamp(5px, .8vh, 9px) 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px 12px;
+      color: var(--ink-black);
+      font-size: clamp(.78rem, 1.45vh, 1.05rem);
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .home-professor strong {
+      color: var(--ink-red);
+      font-size: 1.08em;
+    }
+
+    .home-professor .career-a { color: var(--ink-green); }
+    .home-professor .career-b { color: var(--ink-purple); }
+    .home-professor .dot { color: var(--ink-orange); font-weight: 900; }
+
+    .home-summary-wrap {
+      min-height: 0;
+      width: min(1260px, 96%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 4;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: clamp(5px, .8vh, 9px);
+    }
+
+    .home-summary-title {
+      margin: 0;
+      text-align: center;
+      color: var(--ink-orange);
+      font-size: clamp(1rem, 2.1vh, 1.45rem);
+      line-height: 1;
+      transform: rotate(.25deg);
+    }
+
+    .home-summary-title::after {
+      content: '';
+      display: block;
+      width: min(330px, 52%);
+      height: 3px;
+      margin: 5px auto 0;
+      border-radius: 50%;
+      background: var(--ink-red);
+      transform: rotate(-.7deg);
+      opacity: .74;
+    }
+
+    .home-chapters {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: clamp(6px, .85vh, 10px) clamp(7px, .7vw, 12px);
+      align-items: stretch;
+    }
+
+    .home-chapter {
+      min-width: 0;
+      min-height: 0;
+      position: relative;
+      border: 2px solid currentColor;
+      border-radius: 15px 11px 17px 10px;
+      background: rgba(255,255,255,.58);
+      padding: clamp(7px, 1vh, 11px) clamp(8px, .8vw, 12px);
+      color: var(--ink-blue);
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 3px 0 color-mix(in srgb, currentColor 10%, transparent);
+      transform: rotate(var(--chapter-rot, -.2deg));
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+      overflow: hidden;
+    }
+
+    .home-chapter:nth-child(4n+1) { color: var(--ink-blue); --chapter-rot: -.35deg; }
+    .home-chapter:nth-child(4n+2) { color: var(--ink-red); --chapter-rot: .25deg; }
+    .home-chapter:nth-child(4n+3) { color: var(--ink-green); --chapter-rot: -.18deg; }
+    .home-chapter:nth-child(4n+4) { color: var(--ink-purple); --chapter-rot: .35deg; }
+
+    .home-chapter:hover,
+    .home-chapter:focus-visible {
+      background: rgba(255,255,255,.95);
+      transform: rotate(0deg) translateY(-2px) scale(1.012);
+      box-shadow: 0 8px 18px rgba(15,23,42,.12);
+      outline: 3px dashed var(--focus);
+      outline-offset: 2px;
+      z-index: 3;
+    }
+
+    .home-chapter-number {
+      display: inline-block;
+      margin-bottom: 3px;
+      padding: 1px 7px 2px;
+      border: 1.5px solid currentColor;
+      border-radius: 999px;
+      background: rgba(255,255,255,.64);
+      font-size: clamp(.63rem, 1.12vh, .8rem);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .home-chapter h2 {
+      margin: 0 0 3px;
+      color: currentColor;
+      font-size: clamp(.82rem, 1.55vh, 1.05rem);
+      line-height: 1.08;
+    }
+
+    .home-chapter p {
+      margin: 0;
+      color: var(--ink-black);
+      font-size: clamp(.67rem, 1.2vh, .84rem);
+      line-height: 1.2;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .home-start-row {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+    }
+
+    .home-start {
+      border: 3px solid var(--ink-blue);
+      border-radius: 52% 48% 45% 55% / 52% 44% 56% 48%;
+      background: rgba(239,246,255,.92);
+      color: var(--ink-blue);
+      padding: clamp(8px, 1.15vh, 12px) clamp(18px, 2.4vw, 34px);
+      cursor: pointer;
+      font-weight: 900;
+      font-size: clamp(.9rem, 1.6vh, 1.12rem);
+      box-shadow: 0 5px 0 rgba(8,79,159,.12);
+      transform: rotate(-.35deg);
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .home-start:hover,
+    .home-start:focus-visible {
+      background: #fff;
+      transform: rotate(.2deg) translateY(-2px) scale(1.03);
+      box-shadow: 0 9px 18px rgba(8,79,159,.16);
+      outline: 3px dashed var(--focus);
+      outline-offset: 3px;
+    }
+
+    .home-start::after { content: '  →'; color: var(--ink-red); }
+
+    .home-scribble {
+      position: absolute;
+      z-index: 1;
+      margin: 0;
+      pointer-events: none;
+      font-family: var(--hand);
+      font-weight: 800;
+      line-height: 1.08;
+      opacity: .28;
+      white-space: pre-wrap;
+      max-width: 220px;
+      font-size: clamp(.7rem, 1.25vh, .92rem);
+    }
+
+    .home-scribble.a { left: 1.2%; top: 6%; color: var(--ink-red); transform: rotate(-8deg); }
+    .home-scribble.b { right: 1.5%; top: 8%; color: var(--ink-blue); transform: rotate(7deg); text-align: right; }
+    .home-scribble.c { left: 1.5%; bottom: 4%; color: var(--ink-green); transform: rotate(5deg); }
+    .home-scribble.d { right: 1.4%; bottom: 5%; color: var(--ink-purple); transform: rotate(-6deg); text-align: right; }
+
+    /* No desktop, somente a capa se adapta para caber em 100% da altura útil do monitor. */
+    @media (min-width: 761px) and (min-height: 620px) {
+      body:has(#board-home:not([hidden])) {
+        height: 100svh;
+        min-height: 0;
+        overflow: hidden;
+        padding: clamp(7px, 1.1vh, 12px);
+      }
+      .board-shell:has(#board-home:not([hidden])) {
+        width: min(1560px, 100%);
+        height: calc(100svh - clamp(14px, 2.2vh, 24px));
+        min-height: 0;
+        padding: clamp(7px, 1vh, 12px);
+      }
+      .board-shell:has(#board-home:not([hidden])) .board {
+        height: 100%;
+        min-height: 0;
+      }
+      .board-shell:has(#board-home:not([hidden])) .board-content {
+        height: 100%;
+        min-height: 0;
+        padding: clamp(12px, 1.8vh, 22px) clamp(18px, 2.3vw, 36px) clamp(42px, 5vh, 58px);
+      }
+    }
+
+    @media (max-width: 1100px) and (min-width: 761px) {
+      .home-chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(0, 1fr)); }
+      .home-chapter p { -webkit-line-clamp: 2; }
+    }
+
+    @media (max-height: 720px) and (min-width: 1101px) {
+      .home-header h1 { font-size: clamp(1.7rem, 4.1vh, 2.65rem); }
+      .home-professor { font-size: clamp(.68rem, 1.25vh, .88rem); }
+      .home-chapter { padding-top: 6px; padding-bottom: 6px; }
+      .home-chapter p { -webkit-line-clamp: 2; }
+      .home-start-row { min-height: 42px; }
+    }
+
+    @media (max-width: 760px) {
+      body:has(#board-home:not([hidden])) { overflow-y: auto; }
+      .home-board-screen { height: auto; display: block; }
+      .home-header { margin-bottom: 16px; }
+      .home-professor { display: grid; gap: 4px; }
+      .home-professor .dot { display: none; }
+      .home-summary-wrap { width: 100%; }
+      .home-chapters { grid-template-columns: 1fr; grid-template-rows: none; gap: 9px; }
+      .home-chapter { min-height: 92px; }
+      .home-chapter p { -webkit-line-clamp: unset; }
+      .home-start-row { margin-top: 16px; margin-bottom: 24px; }
+      .home-scribble { display: none; }
+    }
+
+  
+
+    /* =========================================================
+       RESPONSIVIDADE UNIFICADA DOS QUADROS DE AULA
+       Mantém a capa/sumário exatamente com o comportamento atual.
+       Nos demais quadros, a moldura física permanece presa à viewport
+       e o conteúdo da aula rola dentro do próprio quadro quando necessário.
+       ========================================================= */
+
+    /* Evita estouro horizontal causado por exemplos, tabelas e blocos de código. */
+    .board-screen:not(#board-home),
+    .board-screen:not(#board-home) > *,
+    .board-screen:not(#board-home) .table-card,
+    .board-screen:not(#board-home) .concept-card,
+    .board-screen:not(#board-home) pre,
+    .board-screen:not(#board-home) code {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .board-screen:not(#board-home) img,
+    .board-screen:not(#board-home) video,
+    .board-screen:not(#board-home) canvas,
+    .board-screen:not(#board-home) svg {
+      max-width: 100%;
+    }
+
+    /* Desktop, notebooks, netbooks, tablets em paisagem e TVs:
+       mesmo comportamento de moldura fixa do quadro de sumário. */
+    @media (min-width: 761px) {
+      body:has(.board-screen:not(#board-home):not([hidden])) {
+        height: 100vh;
+        height: 100svh;
+        min-height: 0;
+        overflow: hidden;
+        padding: clamp(7px, 1.1vh, 12px);
+      }
+
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) {
+        width: min(1560px, 100%);
+        height: calc(100vh - clamp(14px, 2.2vh, 24px));
+        height: calc(100svh - clamp(14px, 2.2vh, 24px));
+        min-height: 0;
+        max-height: 100svh;
+        padding: clamp(7px, 1vh, 12px);
+      }
+
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board {
+        height: 100%;
+        min-height: 0;
+        overflow: hidden !important;
+      }
+
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board-content {
+        height: 100%;
+        min-height: 0;
+        overflow: hidden;
+        padding: clamp(12px, 1.8vh, 22px) clamp(18px, 2.3vw, 36px) clamp(42px, 5vh, 58px) !important;
+      }
+
+      /* Cada aula passa a ser a área rolável do quadro, sem mover a moldura. */
+      .board-screen:not(#board-home):not([hidden]) {
+        display: block;
+        height: 100%;
+        min-height: 0;
+        max-height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(8,79,159,.42) transparent;
+        padding-inline: 2px;
+        padding-bottom: clamp(8px, 1.2vh, 16px);
+      }
+
+      .board-screen:not(#board-home):not([hidden])::-webkit-scrollbar { width: 9px; }
+      .board-screen:not(#board-home):not([hidden])::-webkit-scrollbar-track { background: transparent; }
+      .board-screen:not(#board-home):not([hidden])::-webkit-scrollbar-thumb {
+        background: rgba(8,79,159,.28);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 999px;
+      }
+
+      .board-screen:not(#board-home) > .title-wrap {
+        margin-top: 0;
+        margin-bottom: clamp(10px, 1.4vh, 16px);
+      }
+
+      /* Evita que títulos enormes roubem a área útil em notebooks/netbooks. */
+      .board-screen:not(#board-home) > .title-wrap h1 {
+        font-size: clamp(1.65rem, min(3.3vw, 4.6vh), 3.55rem);
+        line-height: 1.02;
+      }
+
+      .board-screen:not(#board-home) > .title-wrap .subtitle {
+        font-size: clamp(.82rem, min(1.15vw, 1.65vh), 1.08rem);
+        margin-top: clamp(5px, .8vh, 9px);
+      }
+
+      .board-screen:not(#board-home) .board-nav {
+        gap: clamp(6px, .7vw, 10px);
+        margin-top: clamp(6px, .9vh, 10px);
+      }
+
+      .board-screen:not(#board-home) .board-switch {
+        padding: clamp(6px, .85vh, 9px) clamp(10px, 1.2vw, 16px);
+        font-size: clamp(.74rem, min(.95vw, 1.35vh), .94rem);
+      }
+    }
+
+    /* Netbooks e notebooks de pouca altura: economiza espaço vertical,
+       mas preserva o conteúdo completo por rolagem interna. */
+    @media (min-width: 761px) and (max-height: 760px) {
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board-content {
+        padding-top: 9px !important;
+        padding-bottom: 38px !important;
+      }
+      .board-screen:not(#board-home) > .title-wrap {
+        margin-bottom: 8px;
+      }
+      .board-screen:not(#board-home) > .title-wrap h1 {
+        font-size: clamp(1.45rem, 3.7vh, 2.35rem);
+      }
+      .board-screen:not(#board-home) > .title-wrap .subtitle {
+        font-size: clamp(.72rem, 1.45vh, .9rem);
+      }
+      .board-screen:not(#board-home) .board-nav { margin-top: 5px; }
+      .board-screen:not(#board-home) .board-switch {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
+    /* Tablets e netbooks: os layouts específicos já se reorganizam em grade;
+       esta camada apenas garante que tudo permaneça dentro do quadro. */
+    @media (min-width: 761px) and (max-width: 1120px) {
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) {
+        width: calc(100vw - 14px);
+      }
+      .board-screen:not(#board-home) .workspace,
+      .board-screen:not(#board-home) .tags-workspace,
+      .board-screen:not(#board-home) .css-workspace,
+      .board-screen:not(#board-home) .css2-workspace,
+      .board-screen:not(#board-home) .cssprops-workspace,
+      .board-screen:not(#board-home) .current-workspace,
+      .board-screen:not(#board-home) .jsfund-workspace,
+      .board-screen:not(#board-home) .async-workspace,
+      .board-screen:not(#board-home) .compare-workspace,
+      .board-screen:not(#board-home) .dom-workspace {
+        max-width: 100%;
+      }
+    }
+
+    /* Celulares e tablets estreitos: comportamento equivalente ao sumário mobile.
+       O quadro cresce verticalmente e a página rola normalmente. */
+    @media (max-width: 760px) {
+      body:has(.board-screen:not(#board-home):not([hidden])) {
+        display: block;
+        width: 100%;
+        min-height: 100dvh;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 7px;
+      }
+
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) {
+        width: 100%;
+        max-width: 100%;
+        min-height: calc(100dvh - 14px);
+        height: auto;
+        margin: 0 auto;
+        padding: 7px;
+      }
+
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board {
+        width: 100%;
+        min-height: calc(100dvh - 28px);
+        height: auto;
+        overflow: hidden !important;
+      }
+
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board-content {
+        width: 100%;
+        min-height: inherit;
+        height: auto;
+        overflow: visible;
+        padding: 20px 10px 86px !important;
+      }
+
+      .board-screen:not(#board-home):not([hidden]) {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+      }
+
+      .board-screen:not(#board-home) > .title-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 14px;
+        transform: none;
+      }
+
+      .board-screen:not(#board-home) > .title-wrap h1 {
+        font-size: clamp(1.55rem, 8vw, 2.35rem);
+        overflow-wrap: anywhere;
+      }
+
+      .board-screen:not(#board-home) > .title-wrap .subtitle {
+        font-size: clamp(.84rem, 3.5vw, 1rem);
+        line-height: 1.3;
+      }
+
+      .board-screen:not(#board-home) .board-nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .board-screen:not(#board-home) .board-switch {
+        width: 100%;
+        max-width: none;
+        min-height: 44px;
+        padding: 8px 10px;
+        font-size: .86rem;
+      }
+
+      .board-screen:not(#board-home) .table-card,
+      .board-screen:not(#board-home) .concept-card,
+      .board-screen:not(#board-home) .html-example-box,
+      .board-screen:not(#board-home) .tag-detail-box,
+      .board-screen:not(#board-home) .css-detail-box,
+      .board-screen:not(#board-home) .jsfund-boardlet,
+      .board-screen:not(#board-home) .dom-example-box {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .board-screen:not(#board-home) pre {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* Celulares muito pequenos. */
+    @media (max-width: 420px) {
+      body:has(.board-screen:not(#board-home):not([hidden])) { padding: 4px; }
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) { padding: 5px; }
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board-content {
+        padding: 17px 7px 80px !important;
+      }
+      .board-screen:not(#board-home) > .title-wrap h1 { font-size: clamp(1.35rem, 8.2vw, 1.9rem); }
+      .board-screen:not(#board-home) > .title-wrap .subtitle { font-size: .8rem; }
+      .board-screen:not(#board-home) table { font-size: .76rem; }
+      .board-screen:not(#board-home) th,
+      .board-screen:not(#board-home) td { padding-left: 5px; padding-right: 5px; }
+      .a11y-fab, .draw-fab { width: 46px; height: 46px; }
+    }
+
+    /* Monitores grandes e televisores: ocupa melhor a tela sem esticar demais o conteúdo. */
+    @media (min-width: 1800px) and (min-height: 900px) {
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) {
+        width: min(1880px, 94vw);
+      }
+      .board-screen:not(#board-home) > .title-wrap { max-width: 1320px; }
+      .board-screen:not(#board-home) > .title-wrap h1 {
+        font-size: clamp(2.5rem, 3.1vw, 4.45rem);
+      }
+      .board-screen:not(#board-home) > .title-wrap .subtitle {
+        font-size: clamp(1rem, 1vw, 1.3rem);
+      }
+    }
+
+  
+
+    /* =========================================================
+       AJUSTE FINO: CONTEÚDO TAMBÉM SE ADAPTA À ALTURA DISPONÍVEL
+       Em telas em que a aula passa só um pouco do quadro, o conteúdo
+       é reduzido proporcionalmente em vez de criar barra de rolagem.
+       O sumário não é alterado.
+       ========================================================= */
+    @media (min-width: 761px) {
+      .board-screen:not(#board-home):not([hidden]) {
+        --lesson-fit: 1;
+        zoom: var(--lesson-fit);
+        transform-origin: top center;
+        overflow-y: hidden;
+        scrollbar-gutter: auto;
+      }
+
+      /* Só aparece rolagem como último recurso quando nem uma redução
+         moderada seria suficiente para manter boa legibilidade. */
+      .board-screen:not(#board-home):not([hidden])[data-fit-scroll="true"] {
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+      }
+
+      /* Ao reduzir um pouco a aula, suaviza detalhes que costumavam
+         empurrar o conteúdo para fora por poucos pixels. */
+      .board-screen:not(#board-home):not([hidden])[data-fit-active="true"] > .title-wrap {
+        margin-bottom: clamp(7px, 1.05vh, 12px);
+      }
+      .board-screen:not(#board-home):not([hidden])[data-fit-active="true"] .board-nav {
+        margin-top: clamp(4px, .65vh, 7px);
+      }
+    }
+
+
+    /* =========================================================
+       RESPONSIVIDADE EXPANDIDA — sem barra interna nas aulas
+       A capa/sumário permanece intacta. Em telas >= 761px as aulas
+       mantêm uma composição de quadro e são reduzidas somente o
+       necessário para caber integralmente na área útil.
+       ========================================================= */
+    @media (min-width: 761px) {
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board,
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board-content {
+        overflow: hidden !important;
+      }
+
+      .board-screen:not(#board-home):not([hidden]) {
+        --lesson-fit: 1;
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        scrollbar-width: none !important;
+        scrollbar-gutter: auto !important;
+        zoom: var(--lesson-fit);
+        transform-origin: top center;
+        padding-bottom: 4px !important;
+      }
+
+      .board-screen:not(#board-home):not([hidden])::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+
+      .board-screen:not(#board-home):not([hidden])[data-fit-active="true"] > .title-wrap {
+        margin-bottom: clamp(6px, .9vh, 10px) !important;
+      }
+      .board-screen:not(#board-home):not([hidden])[data-fit-active="true"] .board-nav {
+        margin-top: clamp(4px, .55vh, 6px) !important;
+      }
+    }
+
+    /* Entre tablet horizontal e netbook, NÃO empilha os mapas mentais.
+       O empilhamento anterior aumentava muito a altura e gerava barra.
+       Mantemos o desenho de quadro e deixamos o ajuste de escala fazer
+       a adaptação, como ocorre na tela de sumário. */
+    @media (min-width: 761px) and (max-width: 1120px) {
+      .board-screen:not(#board-home) .connections { display: block !important; }
+
+      .board-screen:not(#board-home) .workspace,
+      .board-screen:not(#board-home) .html-workspace,
+      .board-screen:not(#board-home) .css-workspace,
+      .board-screen:not(#board-home) .async-workspace {
+        position: relative !important;
+        min-height: 690px !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
+        gap: 0 !important;
+        place-items: center !important;
+        align-items: center !important;
+      }
+
+      .board-screen:not(#board-home) .central-panel {
+        width: min(820px, 59vw) !important;
+        min-height: 560px !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        transform: rotate(.2deg) !important;
+      }
+      .board-screen:not(#board-home) .html-central {
+        width: min(820px, 59vw) !important;
+        min-height: 550px !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        transform: rotate(.14deg) !important;
+      }
+      .board-screen:not(#board-home) .css-central {
+        width: min(820px, 60vw) !important;
+        min-height: 560px !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        transform: rotate(.14deg) !important;
+      }
+      .board-screen:not(#board-home) .async-central {
+        width: min(900px, 64vw) !important;
+        min-height: 560px !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        transform: rotate(-.16deg) !important;
+      }
+
+      .board-screen:not(#board-home) .note,
+      .board-screen:not(#board-home) .html-note,
+      .board-screen:not(#board-home) .css-note {
+        position: absolute !important;
+        min-height: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        padding: 8px 10px !important;
+      }
+      .board-screen:not(#board-home) .note::after,
+      .board-screen:not(#board-home) .html-note::after,
+      .board-screen:not(#board-home) .css-note::after { display: block !important; }
+
+      /* Eventos Web */
+      .events { top: 1% !important; left: 1% !important; right: auto !important; bottom: auto !important; width: clamp(150px,18vw,230px) !important; transform: rotate(-3deg) !important; }
+      .javascript { top: 2% !important; right: 1% !important; left: auto !important; bottom: auto !important; width: clamp(150px,18vw,230px) !important; transform: rotate(2.5deg) !important; }
+      .ecmascript { top: 37% !important; left: 0 !important; right: auto !important; bottom: auto !important; width: clamp(150px,18vw,230px) !important; transform: rotate(1.4deg) !important; }
+      .react { top: 36% !important; right: 0 !important; left: auto !important; bottom: auto !important; width: clamp(150px,18vw,230px) !important; transform: rotate(-2.2deg) !important; }
+      .jquery { bottom: 0 !important; left: 4% !important; right: auto !important; top: auto !important; width: clamp(150px,18vw,230px) !important; transform: rotate(-2deg) !important; }
+      .ajax { bottom: 0 !important; right: 4% !important; left: auto !important; top: auto !important; width: clamp(150px,18vw,230px) !important; transform: rotate(2.2deg) !important; }
+
+      /* HTML básico */
+      .web-history { top: 1% !important; left: 1% !important; right: auto !important; bottom: auto !important; width: min(225px,21vw) !important; transform: rotate(-3deg) !important; }
+      .browser-wars { top: 2% !important; right: 1% !important; left: auto !important; bottom: auto !important; width: min(225px,21vw) !important; transform: rotate(2.5deg) !important; }
+      .ai-html { top: 38% !important; left: 0 !important; right: auto !important; bottom: auto !important; width: min(225px,21vw) !important; transform: rotate(1.2deg) !important; }
+      .html5-concept { top: 37% !important; right: 0 !important; left: auto !important; bottom: auto !important; width: min(225px,21vw) !important; transform: rotate(-2.1deg) !important; }
+      .css-concept { bottom: 0 !important; left: 4% !important; right: auto !important; top: auto !important; width: min(225px,21vw) !important; transform: rotate(-2deg) !important; }
+      .js-concept { bottom: 0 !important; right: 4% !important; left: auto !important; top: auto !important; width: min(225px,21vw) !important; transform: rotate(2.1deg) !important; }
+
+      /* CSS fundamentos */
+      .css-history-note { top: 3% !important; left: 1% !important; right: auto !important; bottom: auto !important; width: min(225px,21vw) !important; transform: rotate(-3deg) !important; }
+      .dynamic-pages-note { top: 4% !important; right: 1% !important; left: auto !important; bottom: auto !important; width: min(225px,21vw) !important; transform: rotate(2.6deg) !important; }
+      .sass-tailwind-note { bottom: 2% !important; left: 2% !important; right: auto !important; top: auto !important; width: min(225px,21vw) !important; transform: rotate(2deg) !important; }
+      .uiux-note { bottom: 2% !important; right: 2% !important; left: auto !important; top: auto !important; width: min(225px,21vw) !important; transform: rotate(-2.1deg) !important; }
+
+      /* Assíncrono: volta a usar rabiscos flutuantes em vez de 6 linhas empilhadas. */
+      .board-screen:not(#board-home) .async-scribble {
+        position: absolute !important;
+        inset: auto !important;
+        translate: none !important;
+        max-width: 220px !important;
+        min-height: 0 !important;
+        border: 0 !important;
+        border-left: 3px solid currentColor !important;
+        opacity: .62 !important;
+      }
+      .async-scribble.s1 { top: 4% !important; left: 1% !important; right: auto !important; bottom: auto !important; transform: rotate(-3deg) !important; }
+      .async-scribble.s2 { top: 8% !important; right: 1% !important; left: auto !important; bottom: auto !important; transform: rotate(2deg) !important; }
+      .async-scribble.s3 { top: 43% !important; left: 0 !important; right: auto !important; bottom: auto !important; transform: rotate(2.2deg) !important; }
+      .async-scribble.s4 { top: 43% !important; right: 0 !important; left: auto !important; bottom: auto !important; transform: rotate(-2deg) !important; }
+      .async-scribble.s5 { bottom: 1% !important; left: 50% !important; top: auto !important; right: auto !important; translate: -50% 0 !important; transform: rotate(.8deg) !important; }
+    }
+
+    /* Compactação adicional por ALTURA. Em notebooks 1366x768, 1280x720
+       e netbooks 1024x600 isso evita que poucos pixels gerem overflow. */
+    @media (min-width: 761px) and (max-height: 800px) {
+      .board-screen:not(#board-home) > .title-wrap h1 {
+        font-size: clamp(1.35rem, 3.5vh, 2.4rem) !important;
+      }
+      .board-screen:not(#board-home) > .title-wrap .subtitle {
+        font-size: clamp(.7rem, 1.4vh, .9rem) !important;
+        line-height: 1.16 !important;
+      }
+      .board-screen:not(#board-home) .board-switch {
+        padding: 4px 9px !important;
+        font-size: clamp(.68rem, 1.25vh, .84rem) !important;
+      }
+      .board-screen:not(#board-home) .table-card,
+      .board-screen:not(#board-home) .concept-card,
+      .board-screen:not(#board-home) .jsfund-boardlet,
+      .board-screen:not(#board-home) .css-detail-box,
+      .board-screen:not(#board-home) .tag-detail-box {
+        padding-top: 9px;
+        padding-bottom: 9px;
+      }
+    }
+
+    @media (min-width: 761px) and (max-height: 650px) {
+      .board-shell:has(.board-screen:not(#board-home):not([hidden])) .board-content {
+        padding-top: 7px !important;
+        padding-bottom: 31px !important;
+      }
+      .board-screen:not(#board-home) > .title-wrap { margin-bottom: 5px !important; }
+      .board-screen:not(#board-home) > .title-wrap .subtitle { margin-top: 3px !important; }
+      .board-screen:not(#board-home) .board-nav { margin-top: 3px !important; }
+    }
