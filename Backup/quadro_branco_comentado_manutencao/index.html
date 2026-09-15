@@ -1,15 +1,55 @@
 <!DOCTYPE html>
+<!--
+  ================================================================
+  QUADRO BRANCO — ESTRUTURA PRINCIPAL DA APLICAÇÃO
+  ================================================================
+
+  OBJETIVO DESTE ARQUIVO
+  ----------------------
+  O index.html contém apenas a estrutura semântica da interface.
+  Regras visuais ficam em global.css/style.css e toda a lógica fica
+  em arquivos JavaScript externos, carregados a partir de js/script.js.
+
+  MANUTENÇÃO
+  ----------
+  • Evite colocar CSS em atributos style ou em <style> neste arquivo.
+  • Evite colocar JavaScript inline (onclick, onchange etc.).
+  • Para criar uma nova aula, copie a estrutura de um .board-screen,
+    crie um id único e registre a navegação no JavaScript.
+  • IDs são contratos entre HTML e JavaScript: ao renomear um id,
+    procure sua referência nos arquivos da pasta js/.
+
+  ESCALABILIDADE
+  --------------
+  Cada aula é uma seção independente (.board-screen). Isso permite
+  adicionar novos conteúdos sem transformar o HTML em várias páginas.
+  O script principal controla o carregamento dos módulos e a navegação
+  troca os quadros sem recarregar o documento.
+  ================================================================
+-->
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Quadro Branco interativo do Professor Ms. Pedro Guilherme com aulas de HTML, CSS e JavaScript." />
-  <title>Quadro Branco •</title>
-  <!-- Estilos fragmentados: base global primeiro, estilos dos quadros depois. -->
+  <title>Quadro Branco — Professor Pedro Guilherme</title>
+  <!--
+    ORDEM DA CASCATA CSS
+    1) global.css: fundação visual, moldura, componentes compartilhados e utilidades.
+    2) style.css: regras específicas das aulas/quadros e ajustes responsivos do conteúdo.
+
+    A ordem é intencional: style.css pode especializar a base definida em global.css.
+  -->
   <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!--
+    MOLDURA GLOBAL DO QUADRO
+    board-shell = estrutura externa/metálica.
+    board       = superfície branca que permanece visualmente estável.
+    board-content = área onde somente um .board-screen fica visível por vez.
+  -->
   <main class="board-shell" aria-label="Quadro branco inteligente sobre HTML, CSS, Web e JavaScript">
     <section class="board" aria-labelledby="home-page-title">
       <span class="screw tl" aria-hidden="true"></span>
@@ -20,6 +60,13 @@
       <div class="board-content">
 
 
+        <!--
+                  TELA INICIAL / SUMÁRIO
+                  É o ponto de entrada da aplicação. Os botões usam data-board-target
+                  para informar ao JavaScript qual quadro deve ser aberto.
+                  Para adicionar uma aula ao sumário, mantenha esse atributo sincronizado
+                  com o id da nova seção .board-screen.
+                -->
         <section id="board-home" class="board-screen home-board-screen is-active" aria-labelledby="home-page-title">
           <p class="home-scribble a" aria-hidden="true">&lt;html&gt;\n  conteúdo\n&lt;/html&gt;</p>
           <p class="home-scribble b" aria-hidden="true">.web {\n  display: grid;\n}</p>
@@ -108,6 +155,10 @@
           </div>
         </section>
 
+        <!-- AULA 1 — HTML BÁSICO
+                  Estrutura composta por tabela central + conceitos periféricos.
+                  Os atributos data-html e data-html-concept funcionam como chaves para
+                  os objetos de conteúdo definidos nos arquivos JavaScript. -->
         <section id="board-html" class="board-screen html-board-screen" hidden aria-labelledby="html-page-title">
           <header class="title-wrap">
             <h1 id="html-page-title" tabindex="-1">HTML: Cabeçalhos, Títulos, Parágrafos e Links</h1>
@@ -205,6 +256,9 @@
         </section>
 
 
+        <!-- AULA 2 — PRINCIPAIS TAGS HTML
+                  Cada .tag-chip possui data-tag. O valor deve existir no mapa de dados
+                  de html-tags.js. Isso separa conteúdo (dados) da marcação visual. -->
         <section id="board-tags" class="board-screen tags-board-screen" hidden aria-labelledby="tags-page-title">
           <header class="title-wrap">
             <h1 id="tags-page-title" tabindex="-1">HTML: Principais Tags</h1>
@@ -277,6 +331,9 @@
         </section>
 
 
+        <!-- AULA 3 — FUNDAMENTOS DE CSS
+                  O mapa mental usa data-css-concept e a tabela usa data-css.
+                  Mantenha as chaves sincronizadas com css.js/content.js. -->
         <section id="board-css" class="board-screen css-board-screen" hidden aria-labelledby="css-page-title">
           <header class="title-wrap">
             <h1 id="css-page-title" tabindex="-1">CSS: Estilos e Organização Visual</h1>
@@ -375,6 +432,9 @@
         </section>
 
 
+        <!-- AULA 4 — CSS PARTE 2
+                  Possui uma visão principal e uma visão de referência filtrável.
+                  O JavaScript alterna essas visões sem recriar o quadro inteiro. -->
         <section id="board-css2" class="board-screen css2-board-screen" hidden aria-labelledby="css2-page-title">
           <header class="title-wrap">
             <h1 id="css2-page-title" tabindex="-1">CSS: Parte 2</h1>
@@ -454,6 +514,9 @@ li::marker { color: green; }</pre>
 
 
 
+        <!-- AULA 5 — PROPRIEDADES CSS
+                  Grade de propriedades baseada em data-cssprop e conceitos auxiliares
+                  baseados em data-cssprops-concept. -->
         <section id="board-cssprops" class="board-screen cssprops-board-screen" hidden aria-labelledby="cssprops-page-title">
           <header class="title-wrap">
             <h1 id="cssprops-page-title" tabindex="-1">CSS: Principais Propriedades</h1>
@@ -551,6 +614,9 @@ li::marker { color: green; }</pre>
 
 
 
+        <!-- AULA 6 — ATUALIDADES HTML + CSS
+                  Conteúdo orientado a dados. Novos tópicos podem ser adicionados ao HTML
+                  e ao objeto correspondente no JavaScript sem alterar a navegação global. -->
         <section id="board-current" class="board-screen current-board-screen" hidden aria-labelledby="current-page-title">
           <header class="title-wrap">
             <h1 id="current-page-title" tabindex="-1">Atualidades em HTML + CSS</h1>
@@ -650,6 +716,9 @@ html { view-transition-name: root; }</pre>
 
 
 
+        <!-- AULA 7 — FUNDAMENTOS DE JAVASCRIPT
+                  As linhas data-jsfund atualizam os quadros inferiores de explicação,
+                  código e demonstração. -->
         <section id="board-jsfund" class="board-screen jsfund-board-screen" hidden aria-labelledby="jsfund-page-title">
           <header class="title-wrap">
             <h1 id="jsfund-page-title" tabindex="-1">JavaScript: Fundamentos</h1>
@@ -713,6 +782,9 @@ while (n &gt; 0) {
         </section>
 
 
+        <!-- AULA 8 — FUNÇÕES EM JAVASCRIPT
+                  Reaproveita a mesma arquitetura visual da aula anterior, mas usa
+                  data-jsfunc e um conjunto de dados próprio. -->
         <section id="board-jsfunc" class="board-screen jsfund-board-screen" hidden aria-labelledby="jsfunc-page-title">
           <header class="title-wrap">
             <h1 id="jsfunc-page-title" tabindex="-1">JavaScript: Funções</h1>
@@ -898,6 +970,9 @@ console.log(somar(2, 3));</pre>
 
         </div>
 
+        <!-- AULA 10 — FUNÇÕES ASSÍNCRONAS
+                  Demonstra Promise, async/await e fetch com uma camada de simulação.
+                  O fluxo é renderizado dinamicamente pelo JavaScript. -->
         <section id="board-two" class="board-screen async-board-screen" hidden aria-labelledby="async-page-title">
           <header class="title-wrap">
             <h1 id="async-page-title" tabindex="-1">Funções Assíncronas em JavaScript</h1>
@@ -975,6 +1050,9 @@ let tentativa = 0;</pre>
         </section>
 
 
+        <!-- AULA 11 — CSS × JAVASCRIPT
+                  Compara responsabilidades equivalentes e mantém a seleção por chave
+                  em data-compare. -->
         <section id="board-compare" class="board-screen compare-board-screen" hidden aria-labelledby="compare-page-title">
           <header class="title-wrap">
             <h1 id="compare-page-title" tabindex="-1">Semelhanças: CSS × JavaScript</h1>
@@ -1058,6 +1136,9 @@ el.animate([...], {duration: 300});</pre>
 
 
 
+        <!-- AULA 12 — HTML ↔ JAVASCRIPT / DOM
+                  Último quadro da sequência. data-dom identifica cada operação do DOM
+                  e alimenta exemplos de HTML, JavaScript e resultado. -->
         <section id="board-dom" class="board-screen html-board-screen dom-board-screen" hidden aria-labelledby="dom-page-title">
           <header class="title-wrap">
             <h1 id="dom-page-title" tabindex="-1">JavaScript ↔ HTML: Comunicação pelo DOM</h1>
@@ -1139,6 +1220,11 @@ lista.append(novo);</pre>
     </section>
   </main>
 
+  <!--
+    WIDGET GLOBAL DE ACESSIBILIDADE
+    Fica fora dos quadros para permanecer disponível durante toda a navegação.
+    Sua lógica está isolada em js/accessibility.js.
+  -->
   <aside class="a11y-widget" aria-label="Ajuda de acessibilidade">
     <button
       type="button"
@@ -1157,6 +1243,11 @@ lista.append(novo);</pre>
 
 
 
+  <!--
+    QUADRO LIVRE / CANVAS
+    Controle flutuante global. A implementação de desenho está em js/drawing.js.
+    Manter fora de .board-screen evita perder o canvas ao trocar de aula.
+  -->
   <aside class="draw-widget" aria-label="Quadro branco livre">
     <button
       type="button"
@@ -1186,8 +1277,14 @@ lista.append(novo);</pre>
   </section>
 
 
-  <!-- Único JavaScript referenciado pelo HTML.
-       O script principal carrega e coordena os demais arquivos .js. -->
+  <!--
+    ENTRADA ÚNICA DO JAVASCRIPT
+    O HTML conhece apenas js/script.js. Esse arquivo funciona como bootstrap:
+    carrega os módulos na ordem necessária e inicializa a aplicação.
+
+    Vantagem de manutenção: para acrescentar/remover um módulo, normalmente
+    basta editar a lista applicationScripts em js/script.js, sem tocar no HTML.
+  -->
   <script src="js/script.js" defer></script>
 </body>
 </html>
